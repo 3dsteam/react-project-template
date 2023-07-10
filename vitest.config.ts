@@ -6,4 +6,9 @@ export default defineConfig({
         globals: true,
         environment: "jsdom",
     },
+    resolve: {
+        alias: {
+            "@pages": "/src/pages",
+        },
+    },
 });
