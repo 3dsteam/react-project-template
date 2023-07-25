@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { render } from "@testing-library/react";
 import * as matchers from "@testing-library/jest-dom/matchers";
-import Home from "./index.tsx";
+import Home from "../index.tsx";
 
 expect.extend(matchers);
 
