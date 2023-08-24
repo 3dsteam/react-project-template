@@ -32,7 +32,7 @@ const router = createMemoryRouter(
 
 describe("AuthRoutes", () => {
     beforeEach(() => {
-        // vi.useFakeTimers();
+        vi.useFakeTimers();
     });
 
     afterEach(() => {

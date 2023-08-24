@@ -29,8 +29,10 @@ export default function AuthRoutes() {
     }, [auth, handleExpire]);
 
     if (!auth.isAuth) {
+        // Get origin
+        const from = location.hash ? location.hash.slice(1) : location.pathname;
         // Redirect to sign-in page
-        return <Navigate to="/sign-in" replace={true} state={{ from: location.pathname }} />;
+        return <Navigate to="/sign-in" replace={true} state={{ from }} />;
     }
 
     return (
