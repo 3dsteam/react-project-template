@@ -1,10 +1,16 @@
 import { createHashRouter, RouterProvider } from "react-router-dom";
 import Home from "./home";
+import AuthRoutes from "@pages/auth-routes.tsx";
 
 const router = createHashRouter([
     {
-        path: "/",
-        element: <Home />,
+        element: <AuthRoutes />,
+        children: [
+            {
+                path: "/",
+                element: <Home />,
+            },
+        ],
     },
 ]);
 
