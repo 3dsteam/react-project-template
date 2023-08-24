@@ -41,7 +41,7 @@ describe("Utils: jwt", () => {
     });
 });
 
-const generateJWT = (): string => {
+export const generateJWT = (): string => {
     const secretKey = "secret-key";
     // Get JWT
     return sign({}, secretKey, { expiresIn: "1h" });
