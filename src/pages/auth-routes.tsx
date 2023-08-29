@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from "@store/hooks.ts";
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { callbackOnJwtExpired, isJwtExpired } from "@utils/jwt.ts";
 import { expire } from "@store/reducers/auth";
 import Rest from "../api/rest.ts";
@@ -8,6 +8,8 @@ import { Navigate, Outlet } from "react-router-dom";
 export default function AuthRoutes() {
     const auth = useAppSelector((state) => state.auth.data);
     const dispatch = useAppDispatch();
+
+    const [ready, setReady] = useState(false);
 
     const handleExpire = useCallback(() => {
         // Reset axios authorization header
@@ -19,6 +21,8 @@ export default function AuthRoutes() {
         if (auth.isAuth && !isJwtExpired(auth.token!)) {
             // Set axios authorization header
             Rest.setHeaders({ Authorization: `JWT ${auth.token!}` });
+            // Set ready
+            setReady(true);
             // Set expiration call at timeout
             const expTimeout = callbackOnJwtExpired(auth.token!, handleExpire);
             return () => void clearTimeout(expTimeout);
@@ -35,9 +39,5 @@ export default function AuthRoutes() {
         return <Navigate to="/sign-in" replace={true} state={{ from }} />;
     }
 
-    return (
-        <div data-testid="auth-routes">
-            <Outlet />
-        </div>
-    );
+    return <div data-testid="auth-routes">{ready && <Outlet />}</div>;
 }
