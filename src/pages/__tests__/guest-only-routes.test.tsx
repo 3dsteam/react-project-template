@@ -1,5 +1,4 @@
 import { vi } from "vitest";
-import matchers from "@testing-library/jest-dom/matchers";
 import { renderWithProviders } from "@store/test-utils.tsx";
 import { createHashRouter, RouterProvider } from "react-router-dom";
 import AuthRoutes from "@pages/auth-routes.tsx";
@@ -7,8 +6,6 @@ import { generateJWT } from "@utils/__tests__/jwt.test.ts";
 import { act } from "@testing-library/react";
 import GuestOnlyRoutes from "@pages/guest-only-routes.tsx";
 import { authenticate } from "@store/reducers/auth";
-
-expect.extend(matchers);
 
 // Define router
 const router = createHashRouter([
