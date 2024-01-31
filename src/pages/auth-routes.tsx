@@ -2,7 +2,6 @@ import { useAppDispatch, useAppSelector } from "@store/hooks.ts";
 import { useCallback, useEffect, useState } from "react";
 import { callbackOnJwtExpired, isJwtExpired } from "@utils/jwt.ts";
 import { expire } from "@store/reducers/auth.ts";
-import Rest from "../api/rest.ts";
 import { Navigate, Outlet } from "react-router-dom";
 
 export default function AuthRoutes() {
@@ -12,15 +11,12 @@ export default function AuthRoutes() {
     const [ready, setReady] = useState(false);
 
     const handleExpire = useCallback(() => {
-        // Reset axios authorization header
-        Rest.setHeaders({ Authorization: "" });
+        // Expire session
         dispatch(expire());
     }, [dispatch]);
 
     useEffect(() => {
         if (auth.isAuth && !isJwtExpired(auth.token!)) {
-            // Set axios authorization header
-            Rest.setHeaders({ Authorization: `JWT ${auth.token!}` });
             // Set ready
             setReady(true);
             // Set expiration call at timeout
