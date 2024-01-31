@@ -1,20 +1,17 @@
-import { combineReducers, configureStore, PreloadedState } from "@reduxjs/toolkit";
-import auth from "@store/reducers/auth";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import auth from "@store/reducers/auth.ts";
 
 export const rootReducer = combineReducers({
     auth,
 });
 
-export const setupStore = (preloadedState?: PreloadedState<typeof rootReducer>) => {
-    return configureStore({
-        reducer: rootReducer,
-        preloadedState,
-        devTools: import.meta.env.DEV,
-    });
-};
+const store = configureStore({
+    reducer: rootReducer,
+    devTools: import.meta.env.DEV,
+});
 
-export default setupStore();
+export default store;
 
 export type RootState = ReturnType<typeof rootReducer>;
-export type AppStore = ReturnType<typeof setupStore>;
+export type AppStore = typeof store;
 export type AppDispatch = AppStore["dispatch"];

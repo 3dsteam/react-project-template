@@ -1,8 +1,8 @@
-import Auth, { authenticate, expire } from "@store/reducers/auth";
+import Auth, { authenticate, expire } from "@store/reducers/auth.ts";
 
 describe("Reducer: Auth", () => {
     it("returns the initial state", () => {
-        expect(Auth(undefined, { type: undefined })).toEqual({
+        expect(Auth(undefined, { type: "" })).toEqual({
             data: {
                 isAuth: false,
                 token: null,

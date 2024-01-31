@@ -1,7 +1,7 @@
 import { useAppDispatch, useAppSelector } from "@store/hooks.ts";
 import { useCallback, useEffect, useState } from "react";
 import { callbackOnJwtExpired, isJwtExpired } from "@utils/jwt.ts";
-import { expire } from "@store/reducers/auth";
+import { expire } from "@store/reducers/auth.ts";
 import Rest from "../api/rest.ts";
 import { Navigate, Outlet } from "react-router-dom";
 

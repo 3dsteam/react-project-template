@@ -5,7 +5,7 @@ import AuthRoutes from "@pages/auth-routes.tsx";
 import { generateJWT } from "@utils/__tests__/jwt.test.ts";
 import { act } from "@testing-library/react";
 import GuestOnlyRoutes from "@pages/guest-only-routes.tsx";
-import { authenticate } from "@store/reducers/auth";
+import { authenticate } from "@store/reducers/auth.ts";
 
 // Define router
 const router = createHashRouter([

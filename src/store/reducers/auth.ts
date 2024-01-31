@@ -1,18 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { IAuthState } from "@models/auth.ts";
 import { getLocalStorage, removeLocalStorage, setLocalStorage } from "@utils/storage.ts";
 
-type AuthState = {
-    data: {
-        isAuth: boolean;
-        token: string | null;
-        user: unknown;
-    };
-};
+interface IState {
+    data: IAuthState;
+}
+
+interface IAction {
+    payload: Pick<IAuthState, "token"> & Pick<IAuthState, "user">;
+}
 
 // Load initial state from localStorage
-const local = getLocalStorage("authentication", true) as AuthState["data"] | null;
-const initialState: AuthState = {
-    data: local || {
+const local = getLocalStorage("authentication", true) as IAuthState | null;
+const initialState: IState = {
+    data: local ?? {
         isAuth: false,
         token: null,
         user: null,
@@ -23,13 +24,8 @@ const slice = createSlice({
     name: "Auth",
     initialState,
     reducers: {
-        authenticate: (state: AuthState, action: { payload: { token: string; user: unknown } }) => {
-            const data: AuthState["data"] = {
-                // Set auth flag
-                isAuth: true,
-                ...action.payload,
-            };
-            // Save to localStorage
+        authenticate: (state: IState, action: IAction) => {
+            const data: IAuthState = { isAuth: true, ...action.payload };
             setLocalStorage("authentication", JSON.stringify(data));
             state.data = data;
         },
