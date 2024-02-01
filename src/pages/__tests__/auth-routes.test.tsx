@@ -1,79 +1,141 @@
-import { vi } from "vitest";
-import { renderWithProviders } from "@store/test-utils.tsx";
 import { createMemoryRouter, RouterProvider } from "react-router-dom";
-import AuthRoutes from "@pages/auth-routes.tsx";
+import { renderWithProviders } from "@store/test-utils.tsx";
+import { act, screen } from "@testing-library/react";
 import { generateJWT } from "@utils/__tests__/jwt.test.ts";
-import { act } from "@testing-library/react";
+import AuthRoutes from "@pages/auth-routes.tsx";
 
-// Define router
-const router = createMemoryRouter(
-    [
+describe("When session is authenticated", () => {
+    const router = createMemoryRouter(
+        [
+            {
+                element: <AuthRoutes />,
+                children: [
+                    {
+                        path: "/home",
+                        element: <div data-testid="home" />,
+                    },
+                ],
+            },
+            {
+                path: "/sign-in",
+                element: <div data-testid="sign-in" />,
+            },
+        ],
         {
-            element: <AuthRoutes />,
-            children: [
-                {
-                    path: "/home",
-                    element: <div data-testid="home" />,
-                },
-            ],
+            initialEntries: ["/home"],
         },
-        {
-            path: "/sign-in",
-            element: <div data-testid="sign-in" />,
-        },
-    ],
-    {
-        initialEntries: ["/home"],
-    },
-);
+    );
 
-describe("AuthRoutes", () => {
     beforeEach(() => {
+        renderWithProviders(<RouterProvider router={router} />, {
+            preloadedState: {
+                auth: {
+                    data: {
+                        isAuth: true,
+                        token: generateJWT(),
+                        user: {},
+                    },
+                },
+            },
+        });
+    });
+
+    it("renders page", () => {
+        expect(screen.getByTestId("home")).toBeInTheDocument();
+    });
+});
+
+describe("When session is not authenticated", () => {
+    const router = createMemoryRouter(
+        [
+            {
+                element: <AuthRoutes />,
+                children: [
+                    {
+                        path: "/home",
+                        element: <div data-testid="home" />,
+                    },
+                ],
+            },
+            {
+                path: "/sign-in",
+                element: <div data-testid="sign-in" />,
+            },
+        ],
+        {
+            initialEntries: ["/home"],
+        },
+    );
+
+    beforeEach(() => {
+        renderWithProviders(<RouterProvider router={router} />, {
+            preloadedState: {
+                auth: {
+                    data: {
+                        isAuth: false,
+                        token: null,
+                        user: null,
+                    },
+                },
+            },
+        });
+    });
+
+    it("redirects to sign-in page", () => {
+        expect(screen.getByTestId("sign-in")).toBeInTheDocument();
+    });
+});
+
+describe("When session is expired", () => {
+    const router = createMemoryRouter(
+        [
+            {
+                element: <AuthRoutes />,
+                children: [
+                    {
+                        path: "/home",
+                        element: <div data-testid="home" />,
+                    },
+                ],
+            },
+            {
+                path: "/sign-in",
+                element: <div data-testid="sign-in" />,
+            },
+        ],
+        {
+            initialEntries: ["/home"],
+        },
+    );
+
+    beforeAll(() => {
         vi.useFakeTimers();
     });
 
-    afterEach(() => {
-        vi.resetAllMocks();
-    });
-
-    it("renders page when session is authenticated", () => {
-        const { getByTestId } = renderWithProviders(<RouterProvider router={router} />, {
+    beforeEach(() => {
+        renderWithProviders(<RouterProvider router={router} />, {
             preloadedState: {
                 auth: {
                     data: {
                         isAuth: true,
                         token: generateJWT(),
-                        user: "Lorem Ipsum",
+                        user: {},
                     },
                 },
             },
         });
-        expect(getByTestId("home")).toBeInTheDocument();
     });
 
-    it("redirects to sign-in page when session is not authenticated", () => {
-        const { getByTestId } = renderWithProviders(<RouterProvider router={router} />);
-        expect(getByTestId("sign-in")).toBeInTheDocument();
+    it("renders the page before session is expired", () => {
+        expect(screen.getByTestId("home")).toBeInTheDocument();
     });
 
     it("redirects to sign-in page when session is expired", async () => {
-        const { getByTestId } = renderWithProviders(<RouterProvider router={router} />, {
-            preloadedState: {
-                auth: {
-                    data: {
-                        isAuth: true,
-                        token: generateJWT(),
-                        user: "Lorem Ipsum",
-                    },
-                },
-            },
-        });
-
-        // CHANGE ROUTE (note: in previous test the route is change to /sign-in)
-        await act(() => router.navigate("/home"));
-        expect(getByTestId("home")).toBeInTheDocument();
-
         await act(() => vi.advanceTimersByTime(3600000));
-        expect(getByTestId("sign-in")).toBeInTheDocument();
+        expect(screen.getByTestId("sign-in")).toBeInTheDocument();
+    });
+
+    afterAll(() => {
+        vi.useRealTimers();
     });
 });
