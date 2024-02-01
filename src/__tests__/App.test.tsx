@@ -1,9 +1,17 @@
+import { render, screen } from "@testing-library/react";
 import App from "../App.tsx";
-import { renderWithProviders } from "@store/test-utils.tsx";
+import Router from "@pages/router.tsx";
 
-describe("App", () => {
-    it("renders component", () => {
-        const { getByTestId } = renderWithProviders(<App />);
-        expect(getByTestId("app")).toBeInTheDocument();
-    });
+vi.mock("@pages/router.tsx");
+
+beforeEach(() => {
+    render(<App />);
+});
+
+it("renders correctly", () => {
+    expect(screen.getByTestId("app")).toBeInTheDocument();
+});
+
+it("renders router", () => {
+    expect(vi.mocked(Router)).toHaveBeenCalled();
 });
