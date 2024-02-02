@@ -1,14 +1,18 @@
-import { vi } from "vitest";
-import { sign } from "jsonwebtoken";
 import { callbackOnJwtExpired, getJwtExp, isJwtExpired } from "@utils/jwt.ts";
+import { sign } from "jsonwebtoken";
+import { afterAll, beforeAll, beforeEach } from "vitest";
 
 describe("Utils: jwt", () => {
-    beforeEach(() => {
+    beforeAll(() => {
         vi.useFakeTimers();
     });
 
-    afterEach(() => {
+    beforeEach(() => {
         vi.clearAllMocks();
+    });
+
+    afterAll(() => {
+        vi.useRealTimers();
     });
 
     it("returns correct expiration date", () => {
