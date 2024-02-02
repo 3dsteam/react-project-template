@@ -4,6 +4,7 @@ import { render } from "@testing-library/react";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import { AppStore, rootReducer, RootState } from "./index.ts";
+import { signInApi } from "@store/services/queries/sign-in.ts";
 
 interface ExtendedRenderOptions extends Omit<RenderOptions, "queries"> {
     preloadedState?: Partial<RootState>;
@@ -15,7 +16,11 @@ export const renderWithProviders = (
     {
         preloadedState = {},
         // Automatically create a store instance if no store was passed in
-        store = configureStore({ reducer: rootReducer, preloadedState }),
+        store = configureStore({
+            reducer: rootReducer,
+            preloadedState,
+            middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(signInApi.middleware),
+        }),
         ...renderOptions
     }: ExtendedRenderOptions = {},
 ) => {
