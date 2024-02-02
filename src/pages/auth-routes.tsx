@@ -1,5 +1,5 @@
 import { useCallback, useEffect } from "react";
-import { Navigate, Outlet } from "react-router-dom";
+import { Navigate, Outlet, useLocation } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "@store/hooks.ts";
 import { expire } from "@store/reducers/auth.ts";
 import { callbackOnJwtExpired, isJwtExpired } from "@utils/jwt.ts";
@@ -7,6 +7,7 @@ import { callbackOnJwtExpired, isJwtExpired } from "@utils/jwt.ts";
 export default function AuthRoutes() {
     const auth = useAppSelector((state) => state.auth.data);
     const dispatch = useAppDispatch();
+    const location = useLocation();
 
     const handleExpire = useCallback(() => {
         // Expire session
