@@ -27,7 +27,7 @@
         "noUnusedParameters": true,
         "noFallthroughCasesInSwitch": true,
         /* Types */
-        "types": ["vitest/globals", "@testing-library/jest-dom"],
+        "types": ["vitest/globals", "@testing-library/jest-dom", "vitest-fetch-mock"],
     },
     "include": ["src", "mocks"],
     "references": [
