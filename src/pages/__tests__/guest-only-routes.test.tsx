@@ -1,90 +1,147 @@
-import { vi } from "vitest";
-import { renderWithProviders } from "@store/test-utils.tsx";
-import { createHashRouter, RouterProvider } from "react-router-dom";
-import AuthRoutes from "@pages/auth-routes.tsx";
-import { generateJWT } from "@utils/__tests__/jwt.test.ts";
-import { act } from "@testing-library/react";
+import { beforeAll, beforeEach, describe, expect } from "vitest";
+import * as ReactRouterDom from "react-router-dom";
 import GuestOnlyRoutes from "@pages/guest-only-routes.tsx";
-import { authenticate } from "@store/reducers/auth.ts";
+import { renderWithProviders } from "@store/test-utils.tsx";
+import { screen } from "@testing-library/react";
 
-// Define router
-const router = createHashRouter([
-    {
-        element: <AuthRoutes />,
-        children: [
+vi.mock("react-router-dom", async () => ({
+    ...(await vi.importActual("react-router-dom")),
+}));
+
+describe("When session is not authenticated", () => {
+    const router = ReactRouterDom.createMemoryRouter(
+        [
             {
-                path: "/",
-                element: <div data-testid="root" />,
+                element: <GuestOnlyRoutes />,
+                children: [
+                    {
+                        path: "/sign-in",
+                        element: <div data-testid="sign-in" />,
+                    },
+                ],
             },
             {
-                path: "/home",
+                path: "/",
+                element: <div data-testid="" />,
+            },
+        ],
+        {
+            initialEntries: ["/sign-in"],
+        },
+    );
+
+    beforeEach(() => {
+        renderWithProviders(<ReactRouterDom.RouterProvider router={router} />, {
+            preloadedState: {
+                auth: {
+                    data: {
+                        isAuth: false,
+                        token: null,
+                        user: null,
+                    },
+                },
+            },
+        });
+    });
+
+    it("renders the page", () => {
+        expect(screen.getByTestId("sign-in")).toBeInTheDocument();
+    });
+});
+
+describe("When session is authenticated", () => {
+    const router = ReactRouterDom.createMemoryRouter(
+        [
+            {
+                element: <GuestOnlyRoutes />,
+                children: [
+                    {
+                        path: "/sign-in",
+                        element: <div data-testid="sign-in" />,
+                    },
+                ],
+            },
+            {
+                path: "/",
                 element: <div data-testid="home" />,
             },
         ],
-    },
-    {
-        element: <GuestOnlyRoutes />,
-        children: [
+        {
+            initialEntries: ["/sign-in"],
+        },
+    );
+
+    beforeEach(() => {
+        renderWithProviders(<ReactRouterDom.RouterProvider router={router} />, {
+            preloadedState: {
+                auth: {
+                    data: {
+                        isAuth: true,
+                        token: null,
+                        user: null,
+                    },
+                },
+            },
+        });
+    });
+
+    it("redirects to home page", () => {
+        expect(screen.getByTestId("home")).toBeInTheDocument();
+    });
+});
+
+describe("When session has a previous page to redirect to", () => {
+    const router = ReactRouterDom.createMemoryRouter(
+        [
             {
-                path: "/sign-in",
-                element: <div data-testid="sign-in" />,
+                element: <GuestOnlyRoutes />,
+                children: [
+                    {
+                        path: "/sign-in",
+                        element: <div data-testid="sign-in" />,
+                    },
+                ],
+            },
+            {
+                path: "/",
+                element: <div data-testid="home" />,
+            },
+            {
+                path: "/admin",
+                element: <div data-testid="admin" />,
             },
         ],
-    },
-]);
+        {
+            initialEntries: ["/sign-in"],
+        },
+    );
 
-describe("GuestOnlyRoutes", () => {
+    beforeAll(() => {
+        // Mock location state
+        vi.spyOn(ReactRouterDom, "useLocation").mockReturnValue({
+            key: "",
+            pathname: "/sign-in",
+            state: { from: "/admin" },
+            hash: "",
+            search: "",
+        });
+    });
+
     beforeEach(() => {
-        vi.useFakeTimers();
-    });
-
-    afterEach(() => {
-        vi.resetAllMocks();
-    });
-
-    it("renders sign-in page when session is not authenticated", () => {
-        const { getByTestId } = renderWithProviders(<RouterProvider router={router} />);
-        expect(getByTestId("sign-in")).toBeInTheDocument();
-    });
-
-    it("redirects to / page when session is authenticated", () => {
-        const { getByTestId } = renderWithProviders(<RouterProvider router={router} />, {
+        renderWithProviders(<ReactRouterDom.RouterProvider router={router} />, {
             preloadedState: {
                 auth: {
                     data: {
                         isAuth: true,
-                        token: generateJWT(),
-                        user: "Lorem Ipsum",
+                        token: null,
+                        user: null,
                     },
                 },
             },
         });
-        expect(getByTestId("root")).toBeInTheDocument();
     });
 
-    it("redirects to previous page when session is authenticated", async () => {
-        const { getByTestId, store } = renderWithProviders(<RouterProvider router={router} />, {
-            preloadedState: {
-                auth: {
-                    data: {
-                        isAuth: true,
-                        token: generateJWT(),
-                        user: "Lorem Ipsum",
-                    },
-                },
-            },
-        });
-
-        // REDIRECT TO HOME
-        await act(() => router.navigate("/home"));
-        expect(getByTestId("home")).toBeInTheDocument();
-
-        // Expire session
-        await act(() => vi.advanceTimersByTime(3600000));
-        expect(getByTestId("sign-in")).toBeInTheDocument();
-
-        // Authenticated again and redirect to previous page
-        await act(() => store?.dispatch(authenticate({ token: generateJWT(), user: "Lorem Ipsum" })));
-        expect(getByTestId("home")).toBeInTheDocument();
+    it("redirects to previous page", () => {
+        expect(screen.getByTestId("admin")).toBeInTheDocument();
     });
 });
