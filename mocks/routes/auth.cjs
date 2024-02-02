@@ -14,8 +14,8 @@ module.exports = [
                         user: {
                             id: "df0fb575-8738-4ebe-bbdf-4f494f378c09",
                             email: "lorem.ipsum@gmail.com",
-                            permissions: []
-                        }
+                            permissions: [],
+                        },
                     }, // body to send
                 },
             },
@@ -39,11 +39,11 @@ module.exports = [
                         user: {
                             id: "df0fb575-8738-4ebe-bbdf-4f494f378c09",
                             email: "lorem.ipsum@gmail.com",
-                            permissions: ["admin"]
-                        }
+                            permissions: ["admin"],
+                        },
                     }, // body to send
                 },
             },
-        ]
-    }
-]
+        ],
+    },
+];
