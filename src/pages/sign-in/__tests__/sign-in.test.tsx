@@ -1,26 +1,23 @@
 import { renderWithProviders } from "@store/test-utils.tsx";
-import { act, screen } from "@testing-library/react";
+import { act, screen, waitFor } from "@testing-library/react";
 import SignIn from "../sign-in";
 import SignInForm from "@components/sign-in-form";
-import * as signInApi from "@store/services/queries/sign-in.ts";
 import * as authStore from "@store/reducers/auth.ts";
+import { afterEach } from "vitest";
 
 vi.mock("@components/sign-in-form");
-vi.mock("@store/services/queries/sign-in.ts", async () => ({
-    ...(await vi.importActual("@store/services/queries/sign-in.ts")),
-}));
-
-const signInMutation = vi.fn();
 
 beforeAll(() => {
     // Spy on the authenticate action
     vi.spyOn(authStore, "authenticate");
-    // Mocks the sign-in mutation
-    vi.spyOn(signInApi, "useSignInMutation").mockReturnValue([signInMutation, { originalArgs: {}, reset: vi.fn() }]);
 });
 
 beforeEach(() => {
     renderWithProviders(<SignIn />);
+});
+
+afterEach(() => {
+    vi.clearAllMocks();
 });
 
 it("renders the sign-in page", () => {
@@ -49,7 +46,12 @@ describe("When the sign-in form is submitted", () => {
     });
 
     it("calls the sign-in mutation", () => {
-        expect(signInMutation).toHaveBeenCalledWith({
+        // Gel last call from fetchMock
+        const postRequest = fetchMock.mock.calls[fetchMock.mock.calls.length - 1]?.[0];
+        const requestBody = (postRequest as Request | undefined)?.body as unknown as Buffer;
+        const body = JSON.parse(Buffer.from(requestBody).toString("utf-8")) as Record<string, string>;
+        // Check if the request body is correct
+        expect(body).toStrictEqual({
             email: "lorem.ipsum@gmail.com",
             password: "Ipsum1@34!",
         });
@@ -57,44 +59,38 @@ describe("When the sign-in form is submitted", () => {
 
     describe("When the request is successful", () => {
         beforeAll(() => {
-            // Mock the sign-in mutation response
-            vi.spyOn(signInApi, "useSignInMutation").mockReturnValue([
-                signInMutation,
-                {
-                    data: { token: "JWT Token", user: { id: "1", email: "lorem.ipsum@gmail.com" } },
-                    originalArgs: {},
-                    reset: vi.fn(),
-                },
-            ]);
+            // Mock success response
+            fetchMock.mockResponse(() =>
+                JSON.stringify({
+                    data: {
+                        token: "JWT Token",
+                        user: { id: "1", email: "lorem.ipsum@gmail.com" },
+                    },
+                }),
+            );
         });
 
-        it("calls the Redux authentication action", () => {
-            expect(vi.mocked(authStore.authenticate)).toHaveBeenCalledWith({
-                token: "JWT Token",
-                user: { id: "1", email: "lorem.ipsum@gmail.com" },
-            });
+        it("calls the Redux authentication action", async () => {
+            await waitFor(() =>
+                expect(vi.mocked(authStore.authenticate)).toHaveBeenCalledWith({
+                    token: "JWT Token",
+                    user: { id: "1", email: "lorem.ipsum@gmail.com" },
+                }),
+            );
         });
     });
 
     describe("When the request is unsuccessful", () => {
         beforeAll(() => {
-            vi.clearAllMocks();
-            // Mock the sign-in mutation response
-            vi.spyOn(signInApi, "useSignInMutation").mockReturnValue([
-                signInMutation,
-                {
+            // Mock error response
+            fetchMock.mockResponse(() => ({
+                status: 401,
+                body: JSON.stringify({
                     error: {
-                        data: {
-                            requestId: "REQ#01",
-                            code: "UNAUTHORIZED",
-                            detail: "Username doesn't exist",
-                            message: "Username or password are incorrect",
-                        },
+                        message: "Username or password are incorrect",
                     },
-                    originalArgs: {},
-                    reset: vi.fn(),
-                },
-            ]);
+                }),
+            }));
         });
 
         it("doesn't call the Redux authentication action", () => {

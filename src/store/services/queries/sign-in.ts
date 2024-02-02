@@ -11,7 +11,7 @@ export const signInApi = createApi({
                 method: "POST",
                 body,
             }),
-            transformResponse: (response: { data: unknown }) => response.data,
+            transformResponse: (response: { data: unknown }) => response?.data,
             transformErrorResponse,
         }),
     }),
