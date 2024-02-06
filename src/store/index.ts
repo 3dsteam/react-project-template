@@ -8,14 +8,18 @@ export const rootReducer = combineReducers({
     signInApi: signInApi.reducer,
 });
 
-const store = configureStore({
-    reducer: rootReducer,
-    devTools: import.meta.env.DEV,
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(signInApi.middleware),
-});
+export const createStore = (preloadedState?: Partial<RootState>) => {
+    return configureStore({
+        reducer: rootReducer,
+        preloadedState,
+        devTools: import.meta.env.DEV,
+        // Middleware
+        middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(signInApi.middleware),
+    });
+};
 
-export default store;
+export default createStore();
 
 export type RootState = ReturnType<typeof rootReducer>;
-export type AppStore = typeof store;
+export type AppStore = ReturnType<typeof createStore>;
 export type AppDispatch = AppStore["dispatch"];
