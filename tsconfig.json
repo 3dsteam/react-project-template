@@ -8,6 +8,7 @@
             "@msw/*": ["msw/*"],
             "@pages/*": ["src/pages/*"],
             "@store/*": ["src/store/*"],
+            "@tests/*": ["tests/*"],
             "@utils/*": ["src/utils/*"],
         },
         "target": "ES2020",

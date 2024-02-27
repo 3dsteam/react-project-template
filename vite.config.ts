@@ -12,6 +12,7 @@ export default defineConfig({
             "@models": "/src/models",
             "@msw": "/msw",
             "@store": "/src/store",
+            "@tests": "/tests",
             "@utils": "/src/utils",
         },
     },
