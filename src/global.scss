@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+// Font Awesome
+@import "@fortawesome/fontawesome-pro/css/fontawesome.min.css";
+@import "@fortawesome/fontawesome-pro/css/light.min.css";
+
 // Syncfusion
 @import '@syncfusion/ej2-base/styles/tailwind';
 @import '@syncfusion/ej2-buttons/styles/tailwind';

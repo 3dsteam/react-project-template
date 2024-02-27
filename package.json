@@ -20,6 +20,7 @@
         ]
     },
     "dependencies": {
+        "@fortawesome/fontawesome-pro": "^6.5.1",
         "@reduxjs/toolkit": "^2.1.0",
         "@syncfusion/ej2-react-grids": "^24.2.8",
         "i18next": "^23.8.1",
