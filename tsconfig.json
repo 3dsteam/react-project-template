@@ -5,6 +5,7 @@
             "@assets/*": ["src/assets/*"],
             "@components/*": ["src/components/*"],
             "@models/*": ["src/models/*"],
+            "@msw/*": ["msw/*"],
             "@pages/*": ["src/pages/*"],
             "@store/*": ["src/store/*"],
             "@utils/*": ["src/utils/*"],
@@ -29,7 +30,7 @@
         /* Types */
         "types": ["vitest/globals", "@testing-library/jest-dom"],
     },
-    "include": ["src", "mocks"],
+    "include": ["src", "msw", "tests"],
     "references": [
         {
             "path": "./tsconfig.node.json",
