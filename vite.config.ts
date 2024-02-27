@@ -16,6 +16,13 @@ export default defineConfig({
             "@utils": "/src/utils",
         },
     },
+    css: {
+        preprocessorOptions: {
+            scss: {
+                includePaths: ["node_modules/@syncfusion"],
+            },
+        },
+    },
     test: {
         // ...
         globals: true,
