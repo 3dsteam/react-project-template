@@ -6,11 +6,21 @@ export default defineConfig({
     plugins: [react()],
     resolve: {
         alias: {
+            "@assets": "/src/assets",
             "@pages": "/src/pages",
             "@components": "/src/components",
             "@models": "/src/models",
+            "@msw": "/msw",
             "@store": "/src/store",
+            "@tests": "/tests",
             "@utils": "/src/utils",
+        },
+    },
+    css: {
+        preprocessorOptions: {
+            scss: {
+                includePaths: ["node_modules/@syncfusion"],
+            },
         },
     },
     test: {

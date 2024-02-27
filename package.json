@@ -5,14 +5,13 @@
     "version": "0.0.0",
     "type": "module",
     "scripts": {
+        "prepare": "husky",
         "dev": "vite",
-        "build": "tsc && vite build",
+        "mocks": "mocks-server",
         "test": "vitest run",
         "test:watch": "vitest",
-        "mocks": "mocks-server",
-        "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-        "preview": "vite preview",
-        "prepare": "husky"
+        "build": "tsc && vite build",
+        "preview": "vite preview"
     },
     "lint-staged": {
         "src/**/*.{js,jsx,ts,tsx}": [
@@ -21,7 +20,9 @@
         ]
     },
     "dependencies": {
+        "@fortawesome/fontawesome-pro": "^6.5.1",
         "@reduxjs/toolkit": "^2.1.0",
+        "@syncfusion/ej2-react-grids": "^24.2.8",
         "i18next": "^23.8.1",
         "i18next-http-backend": "^2.4.2",
         "react": "^18.2.0",
@@ -43,12 +44,14 @@
         "autoprefixer": "^10.4.17",
         "eslint": "^8.56.0",
         "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-react": "^7.33.2",
         "eslint-plugin-react-hooks": "^4.6.0",
         "eslint-plugin-react-refresh": "^0.4.5",
         "husky": "^9.0.7",
         "jsdom": "^24.0.0",
         "jsonwebtoken": "^9.0.2",
         "lint-staged": "^15.2.0",
+        "msw": "^2.2.1",
         "postcss": "^8.4.33",
         "prettier": "3.2.4",
         "sass": "^1.70.0",

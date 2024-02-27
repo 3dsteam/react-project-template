@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+// Font Awesome
+@import "@fortawesome/fontawesome-pro/css/fontawesome.min.css";
+@import "@fortawesome/fontawesome-pro/css/light.min.css";
+
+// Syncfusion
+@import '@syncfusion/ej2-base/styles/tailwind';
+@import '@syncfusion/ej2-buttons/styles/tailwind';
+@import '@syncfusion/ej2-calendars/styles/tailwind';
+@import '@syncfusion/ej2-dropdowns/styles/tailwind';
+@import '@syncfusion/ej2-inputs/styles/tailwind';
+@import '@syncfusion/ej2-navigations/styles/tailwind';
+@import '@syncfusion/ej2-popups/styles/tailwind';
+@import '@syncfusion/ej2-splitbuttons/styles/tailwind';
+@import '@syncfusion/ej2-notifications/styles/tailwind';
+
+@import "@syncfusion/ej2-react-grids/styles/tailwind";

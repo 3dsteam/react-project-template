@@ -18,7 +18,10 @@ const router = createHashRouter([
         children: [
             {
                 path: "/sign-in",
-                element: <div data-testid="sign-in">Sign In</div>,
+                lazy: async () => {
+                    const SignIn = (await import("@pages/sign-in")).default;
+                    return { element: <SignIn /> };
+                },
             },
         ],
     },

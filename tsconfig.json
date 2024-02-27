@@ -2,21 +2,14 @@
     "compilerOptions": {
         "baseUrl": ".",
         "paths": {
-            "@components/*": [
-                "src/components/*"
-            ],
-            "@models/*": [
-                "src/models/*"
-            ],
-            "@pages/*": [
-                "src/pages/*"
-            ],
-            "@store/*": [
-                "src/store/*"
-            ],
-            "@utils/*": [
-                "src/utils/*"
-            ],
+            "@assets/*": ["src/assets/*"],
+            "@components/*": ["src/components/*"],
+            "@models/*": ["src/models/*"],
+            "@msw/*": ["msw/*"],
+            "@pages/*": ["src/pages/*"],
+            "@store/*": ["src/store/*"],
+            "@tests/*": ["tests/*"],
+            "@utils/*": ["src/utils/*"],
         },
         "target": "ES2020",
         "useDefineForClassFields": true,
@@ -36,12 +29,12 @@
         "noUnusedParameters": true,
         "noFallthroughCasesInSwitch": true,
         /* Types */
-        "types": ["vitest/globals", "@testing-library/jest-dom"]
+        "types": ["vitest/globals", "@testing-library/jest-dom"],
     },
-    "include": ["src", "mocks"],
+    "include": ["src", "msw", "tests"],
     "references": [
         {
-            "path": "./tsconfig.node.json"
-        }
-    ]
+            "path": "./tsconfig.node.json",
+        },
+    ],
 }
