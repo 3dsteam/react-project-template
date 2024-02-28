@@ -2,10 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { Provider as ReduxProvider } from "react-redux";
 import store from "@store/index";
+import { setupIonicReact } from "@ionic/react";
 import { registerLicense } from "@syncfusion/ej2-base";
 import App from "./App.tsx";
 import i18n from "./i18n.ts";
 import "./global.scss";
+
+// Setup Ionic
+setupIonicReact();
 
 // Syncfusion License
 registerLicense((import.meta.env.VITE_SYNCFUSION_KEY as string) ?? "");
