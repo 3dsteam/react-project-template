@@ -6,6 +6,15 @@
 @import "@fortawesome/fontawesome-pro/css/fontawesome.min.css";
 @import "@fortawesome/fontawesome-pro/css/light.min.css";
 
+// Ionic
+@import "@ionic/react/css/core.css";
+@import "@ionic/react/css/normalize.css";
+@import "@ionic/react/css/structure.css";
+@import "@ionic/react/css/typography.css";
+
+// Optional CSS utils by Ionic
+@import "@ionic/react/css/padding.css";
+
 // Syncfusion
 @import '@syncfusion/ej2-base/styles/tailwind';
 @import '@syncfusion/ej2-buttons/styles/tailwind';
