@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { useAppDispatch } from "@store/hooks.ts";
 import { authenticate } from "@store/reducers/auth.ts";
 import { IAPIError } from "@models/error.ts";
-import { IonPage } from "@ionic/react";
+import { IonContent, IonPage } from "@ionic/react";
 
 export default function SignIn() {
     const dispatch = useAppDispatch();
@@ -26,11 +26,13 @@ export default function SignIn() {
 
     return (
         <IonPage data-testid="sign-in">
-            <img src={Logo} alt="Logo" />
-            {/* Form */}
-            <SignInForm onSubmit={handleOnSubmit} />
-            {/* Error message */}
-            {error && "data" in error && <div data-testid="error-message">{(error.data as IAPIError).message}</div>}
+            <IonContent forceOverscroll={false} className="ion-padding">
+                <img src={Logo} alt="Logo" />
+                {/* Form */}
+                <SignInForm onSubmit={handleOnSubmit} />
+                {/* Error message */}
+                {error && "data" in error && <div data-testid="error-message">{(error.data as IAPIError).message}</div>}
+            </IonContent>
         </IonPage>
     );
 }
