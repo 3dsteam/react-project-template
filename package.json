@@ -6,12 +6,12 @@
     "type": "module",
     "scripts": {
         "prepare": "husky",
-        "dev": "vite",
+        "dev": "ionic serve --port=5173",
         "mocks": "mocks-server",
         "test": "vitest run",
         "test:watch": "vitest",
-        "build": "tsc && vite build",
-        "preview": "vite preview"
+        "build": "ionic build --prod",
+        "build:mobile": "ionic capacitor sync --prod"
     },
     "lint-staged": {
         "src/**/*.{js,jsx,ts,tsx}": [
