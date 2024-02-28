@@ -1,5 +1,7 @@
 {
   "name": "react-project-template",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "react-vite"
 }
