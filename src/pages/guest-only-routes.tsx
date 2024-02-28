@@ -1,18 +1,16 @@
-import { Navigate, Outlet, useLocation } from "react-router-dom";
+import { Redirect, Route, RouteProps, useLocation } from "react-router-dom";
 import { useAppSelector } from "@store/hooks.ts";
 
-export default function GuestOnlyRoutes() {
+export default function GuestOnlyRoutes({ Component, ...props }: RouteProps & { Component: () => JSX.Element }) {
     const auth = useAppSelector((state) => state.auth.data);
     const location = useLocation();
-
-    if (auth.isAuth) {
-        // Redirect to previous page or home
-        return <Navigate to={(location.state as { from: string })?.from || "/"} replace={true} />;
-    }
-
+    // Redirect to the previous location if the user is already authenticated
     return (
-        <div data-testid="guest-only-routes">
-            <Outlet />
-        </div>
+        <Route
+            {...props}
+            render={() =>
+                !auth.isAuth ? <Component /> : <Redirect to={(location.state as { from?: string })?.from ?? "/"} />
+            }
+        />
     );
 }

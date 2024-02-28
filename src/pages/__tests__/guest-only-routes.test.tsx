@@ -1,5 +1,6 @@
 import { beforeAll, beforeEach, describe, expect } from "vitest";
 import * as ReactRouterDom from "react-router-dom";
+import { MemoryRouter, Route, Switch } from "react-router-dom";
 import GuestOnlyRoutes from "@pages/guest-only-routes.tsx";
 import { renderWithProviders } from "@store/test-utils.tsx";
 import { screen } from "@testing-library/react";
@@ -9,29 +10,16 @@ vi.mock("react-router-dom", async () => ({
 }));
 
 describe("When session is not authenticated", () => {
-    const router = ReactRouterDom.createMemoryRouter(
-        [
-            {
-                element: <GuestOnlyRoutes />,
-                children: [
-                    {
-                        path: "/sign-in",
-                        element: <div data-testid="sign-in" />,
-                    },
-                ],
-            },
-            {
-                path: "/",
-                element: <div data-testid="" />,
-            },
-        ],
-        {
-            initialEntries: ["/sign-in"],
-        },
+    const Router = (
+        <MemoryRouter initialIndex={1} initialEntries={["/sign-in"]}>
+            <Switch>
+                <GuestOnlyRoutes path="/sign-in" exact Component={() => <div data-testid="sign-in" />} />
+            </Switch>
+        </MemoryRouter>
     );
 
     beforeEach(() => {
-        renderWithProviders(<ReactRouterDom.RouterProvider router={router} />, {
+        renderWithProviders(Router, {
             preloadedState: {
                 auth: {
                     data: {
@@ -50,29 +38,17 @@ describe("When session is not authenticated", () => {
 });
 
 describe("When session is authenticated", () => {
-    const router = ReactRouterDom.createMemoryRouter(
-        [
-            {
-                element: <GuestOnlyRoutes />,
-                children: [
-                    {
-                        path: "/sign-in",
-                        element: <div data-testid="sign-in" />,
-                    },
-                ],
-            },
-            {
-                path: "/",
-                element: <div data-testid="home" />,
-            },
-        ],
-        {
-            initialEntries: ["/sign-in"],
-        },
+    const Router = (
+        <MemoryRouter initialIndex={1} initialEntries={["/sign-in"]}>
+            <Switch>
+                <GuestOnlyRoutes path="/sign-in" exact Component={() => <div data-testid="sign-in" />} />
+                <Route path="/" exact component={() => <div data-testid="home" />} />
+            </Switch>
+        </MemoryRouter>
     );
 
     beforeEach(() => {
-        renderWithProviders(<ReactRouterDom.RouterProvider router={router} />, {
+        renderWithProviders(Router, {
             preloadedState: {
                 auth: {
                     data: {
@@ -91,29 +67,14 @@ describe("When session is authenticated", () => {
 });
 
 describe("When session has a previous page to redirect to", () => {
-    const router = ReactRouterDom.createMemoryRouter(
-        [
-            {
-                element: <GuestOnlyRoutes />,
-                children: [
-                    {
-                        path: "/sign-in",
-                        element: <div data-testid="sign-in" />,
-                    },
-                ],
-            },
-            {
-                path: "/",
-                element: <div data-testid="home" />,
-            },
-            {
-                path: "/admin",
-                element: <div data-testid="admin" />,
-            },
-        ],
-        {
-            initialEntries: ["/sign-in"],
-        },
+    const Router = (
+        <MemoryRouter initialIndex={1} initialEntries={["/sign-in"]}>
+            <Switch>
+                <GuestOnlyRoutes path="/sign-in" Component={() => <div data-testid="sign-in" />} />
+                <Route path="/" exact component={() => <div data-testid="home" />} />
+                <Route path="/admin" exact component={() => <div data-testid="admin" />} />
+            </Switch>
+        </MemoryRouter>
     );
 
     beforeAll(() => {
@@ -128,7 +89,7 @@ describe("When session has a previous page to redirect to", () => {
     });
 
     beforeEach(() => {
-        renderWithProviders(<ReactRouterDom.RouterProvider router={router} />, {
+        renderWithProviders(Router, {
             preloadedState: {
                 auth: {
                     data: {

@@ -1,3 +1,5 @@
+import { IonPage } from "@ionic/react";
+
 export default function Home() {
-    return <div data-testid="home">Hello React!</div>;
+    return <IonPage data-testid="home">Hello React!</IonPage>;
 }

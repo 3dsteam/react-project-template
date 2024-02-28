@@ -1,9 +1,10 @@
+import { IonApp } from "@ionic/react";
 import Router from "@pages/router.tsx";
 
 export default function App() {
     return (
-        <div data-testid="app">
+        <IonApp data-testid="app">
             <Router />
-        </div>
+        </IonApp>
     );
 }

@@ -1,4 +1,5 @@
 import * as ReactRouterDom from "react-router-dom";
+import { MemoryRouter, Route, Switch } from "react-router-dom";
 import { renderWithProviders } from "@store/test-utils.tsx";
 import { act, screen } from "@testing-library/react";
 import { generateJWT } from "@utils/__tests__/jwt.test.ts";
@@ -10,33 +11,20 @@ vi.mock("react-router-dom", async () => ({
 
 beforeAll(() => {
     // Mock Navigate component
-    vi.spyOn(ReactRouterDom, "Navigate");
+    vi.spyOn(ReactRouterDom, "Redirect");
 });
 
 describe("When session is authenticated", () => {
-    const router = ReactRouterDom.createMemoryRouter(
-        [
-            {
-                element: <AuthRoutes />,
-                children: [
-                    {
-                        path: "/home",
-                        element: <div data-testid="home" />,
-                    },
-                ],
-            },
-            {
-                path: "/sign-in",
-                element: <div data-testid="sign-in" />,
-            },
-        ],
-        {
-            initialEntries: ["/home"],
-        },
+    const Router = (
+        <MemoryRouter initialIndex={1} initialEntries={["/home"]}>
+            <Switch>
+                <AuthRoutes path="/home" exact Component={() => <div data-testid="home" />} />
+            </Switch>
+        </MemoryRouter>
     );
 
     beforeEach(() => {
-        renderWithProviders(<ReactRouterDom.RouterProvider router={router} />, {
+        renderWithProviders(Router, {
             preloadedState: {
                 auth: {
                     data: {
@@ -55,29 +43,17 @@ describe("When session is authenticated", () => {
 });
 
 describe("When session is not authenticated", () => {
-    const router = ReactRouterDom.createMemoryRouter(
-        [
-            {
-                element: <AuthRoutes />,
-                children: [
-                    {
-                        path: "/home",
-                        element: <div data-testid="home" />,
-                    },
-                ],
-            },
-            {
-                path: "/sign-in",
-                element: <div data-testid="sign-in" />,
-            },
-        ],
-        {
-            initialEntries: ["/home"],
-        },
+    const Router = (
+        <MemoryRouter initialIndex={1} initialEntries={["/home"]}>
+            <Switch>
+                <AuthRoutes path="/home" exact Component={() => <div data-testid="home" />} />
+                <Route path="/sign-in" exact component={() => <div data-testid="sign-in" />} />
+            </Switch>
+        </MemoryRouter>
     );
 
     beforeEach(() => {
-        renderWithProviders(<ReactRouterDom.RouterProvider router={router} />, {
+        renderWithProviders(Router, {
             preloadedState: {
                 auth: {
                     data: {
@@ -91,9 +67,12 @@ describe("When session is not authenticated", () => {
     });
 
     it("calls Navigate component with previous page information on the state from", () => {
-        expect(vi.mocked(ReactRouterDom.Navigate)).toHaveBeenCalledWith(
+        expect(vi.mocked(ReactRouterDom.Redirect)).toHaveBeenCalledWith(
             expect.objectContaining({
-                state: { from: "/home" },
+                to: {
+                    pathname: "/sign-in",
+                    state: { from: "/home" },
+                },
             }),
             expect.any(Object),
         );
@@ -105,25 +84,13 @@ describe("When session is not authenticated", () => {
 });
 
 describe("When session is expired", () => {
-    const router = ReactRouterDom.createMemoryRouter(
-        [
-            {
-                element: <AuthRoutes />,
-                children: [
-                    {
-                        path: "/home",
-                        element: <div data-testid="home" />,
-                    },
-                ],
-            },
-            {
-                path: "/sign-in",
-                element: <div data-testid="sign-in" />,
-            },
-        ],
-        {
-            initialEntries: ["/home"],
-        },
+    const Router = (
+        <MemoryRouter initialIndex={1} initialEntries={["/home"]}>
+            <Switch>
+                <AuthRoutes path="/home" exact Component={() => <div data-testid="home" />} />
+                <Route path="/sign-in" exact component={() => <div data-testid="sign-in" />} />
+            </Switch>
+        </MemoryRouter>
     );
 
     beforeAll(() => {
@@ -135,7 +102,7 @@ describe("When session is expired", () => {
     });
 
     beforeEach(() => {
-        renderWithProviders(<ReactRouterDom.RouterProvider router={router} />, {
+        renderWithProviders(Router, {
             preloadedState: {
                 auth: {
                     data: {
