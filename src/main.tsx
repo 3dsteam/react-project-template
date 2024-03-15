@@ -5,7 +5,9 @@ import store from "@store/index";
 import { setupIonicReact } from "@ionic/react";
 import { registerLicense } from "@syncfusion/ej2-base";
 import App from "./App.tsx";
+import i18next from "i18next";
 import i18n from "./i18n.ts";
+import { setLocalStorage } from "@utils/storage.ts";
 import "./global.scss";
 
 // Setup Ionic
@@ -17,6 +19,11 @@ registerLicense((import.meta.env.VITE_SYNCFUSION_KEY as string) ?? "");
 void (async () => {
     // Initialize i18n
     await i18n();
+    // Watch the language change
+    i18next.on("languageChanged", (lng) => {
+        // Update document language
+        setLocalStorage("i18NextLng", lng);
+    });
     // Render App
     ReactDOM.createRoot(document.getElementById("root")!).render(
         <React.StrictMode>
