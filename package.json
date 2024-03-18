@@ -22,7 +22,9 @@
     "dependencies": {
         "@fortawesome/fontawesome-pro": "^6.5.1",
         "@reduxjs/toolkit": "^2.1.0",
+        "@syncfusion/ej2-react-buttons": "^25.1.35",
         "@syncfusion/ej2-react-grids": "^24.2.8",
+        "@syncfusion/ej2-react-inputs": "^25.1.35",
         "i18next": "^23.8.1",
         "i18next-http-backend": "^2.4.2",
         "moment": "^2.30.1",
