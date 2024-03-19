@@ -18,3 +18,32 @@
 @import '@syncfusion/ej2-notifications/styles/tailwind';
 
 @import "@syncfusion/ej2-react-grids/styles/tailwind";
+
+// Admin page
+.admin-page {
+  @apply absolute inset-0 flex flex-col p-4 gap-4 bg-gray-200;
+
+  .admin-page-header {
+    @apply flex flex-row items-end gap-4;
+
+    section.admin-page-title {
+      @apply grow;
+
+      .admin-page-breadcrumb {
+        @apply flex flex-row gap-2 mt-2 text-xs;
+      }
+    }
+  }
+
+  section.admin-page-container {
+    @apply flex flex-row flex-1 gap-4;
+
+    section {
+      @apply rounded-lg bg-white;
+    }
+
+    section.admin-page-content {
+      @apply grow;
+    }
+  }
+}

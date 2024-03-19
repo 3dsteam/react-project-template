@@ -2,6 +2,7 @@ import { createHashRouter, RouterProvider } from "react-router-dom";
 import Home from "./home";
 import AuthRoutes from "@pages/auth-routes.tsx";
 import GuestOnlyRoutes from "@pages/guest-only-routes.tsx";
+import Admin from "@pages/admin";
 
 const router = createHashRouter([
     {
@@ -10,6 +11,10 @@ const router = createHashRouter([
             {
                 path: "/",
                 element: <Home />,
+            },
+            {
+                path: "/admin",
+                element: <Admin />,
             },
         ],
     },
