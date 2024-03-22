@@ -4,8 +4,8 @@
         "paths": {
             "@assets/*": ["src/assets/*"],
             "@components/*": ["src/components/*"],
+            "@mocks/*": ["mocks/*"],
             "@models/*": ["src/models/*"],
-            "@msw/*": ["msw/*"],
             "@pages/*": ["src/pages/*"],
             "@store/*": ["src/store/*"],
             "@tests/*": ["tests/*"],
@@ -31,7 +31,7 @@
         /* Types */
         "types": ["vitest/globals", "@testing-library/jest-dom"],
     },
-    "include": ["src", "msw", "tests"],
+    "include": ["src", "vite.config.ts", "tests", "mocks"],
     "references": [
         {
             "path": "./tsconfig.node.json",

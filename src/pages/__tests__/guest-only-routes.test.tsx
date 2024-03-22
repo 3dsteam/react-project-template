@@ -1,7 +1,7 @@
 import { beforeAll, beforeEach, describe, expect } from "vitest";
 import * as ReactRouterDom from "react-router-dom";
 import GuestOnlyRoutes from "@pages/guest-only-routes.tsx";
-import { renderWithProviders } from "@store/test-utils.tsx";
+import { renderWithProviders } from "@tests/store.tsx";
 import { screen } from "@testing-library/react";
 
 vi.mock("react-router-dom", async () => ({

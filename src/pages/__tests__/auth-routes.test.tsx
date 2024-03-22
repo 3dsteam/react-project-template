@@ -1,5 +1,5 @@
 import * as ReactRouterDom from "react-router-dom";
-import { renderWithProviders } from "@store/test-utils.tsx";
+import { renderWithProviders } from "@tests/store.tsx";
 import { act, screen } from "@testing-library/react";
 import { generateJWT } from "@utils/__tests__/jwt.test.ts";
 import AuthRoutes from "@pages/auth-routes.tsx";
