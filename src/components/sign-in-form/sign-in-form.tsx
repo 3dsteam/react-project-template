@@ -1,7 +1,7 @@
-import { ChangedEventArgs, FormValidator, TextBoxComponent } from "@syncfusion/ej2-react-inputs";
 import { ButtonComponent } from "@syncfusion/ej2-react-buttons";
-import { FormEvent, useRef, useState } from "react";
+import { FormEvent, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useValidator } from "@hooks/form-validator.ts";
 
 interface Props {
     identificationType?: "email" | "username";
@@ -9,28 +9,27 @@ interface Props {
 }
 
 export default function SignInForm(props: Props) {
-    const { t } = useTranslation();
-    const validator = useRef<FormValidator>();
+    const { t } = useTranslation("translation", { keyPrefix: "SignIn" });
 
     // Form data
     const [identification, setIdentification] = useState("");
     const [password, setPassword] = useState("");
 
-    // Password type
-    const [passwordType, setPasswordType] = useState<"password" | "text">("password");
-
-    /**
-     * Set the form validator
-     * @param element {HTMLFormElement} Form element
-     */
-    const setFormValidator = (element: HTMLFormElement) => {
-        validator.current = new FormValidator(`#${element.id}`, {
-            rules: {
-                identification: { required: true },
-                password: { required: true },
+    // Form validation
+    const { validate, errors } = useValidator({
+        data: { identification, password },
+        rules: {
+            identification: {
+                required: true,
+                isEmail: { value: props.identificationType === "email" },
             },
-        });
-    };
+            password: true,
+        },
+    });
+
+    // Identification and password type
+    const isEmail = props.identificationType === "email";
+    const [passwordType, setPasswordType] = useState<"password" | "text">("password");
 
     /**
      * Handle form submit
@@ -39,49 +38,42 @@ export default function SignInForm(props: Props) {
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         // Check if form is valid
-        if (validator.current?.validate()) {
-            // Callback
+        if (validate({ identification, password })) {
             await props.onSubmit({ identification, password });
         }
     };
 
     return (
-        <form
-            id="sign-in-form"
-            data-testid="sign-in-form"
-            ref={(el) => {
-                if (!el) return;
-                // Set form validator
-                setFormValidator(el);
-            }}
-            onSubmit={(e) => void handleSubmit(e)}
-        >
-            <div>
-                <TextBoxComponent
+        <form data-testid="sign-in-form" onSubmit={(e) => void handleSubmit(e)} className="space-y-4">
+            <section>
+                <label htmlFor="identification">{t(isEmail ? "Email address" : "Username")}</label>
+                <input
                     name="identification"
                     data-testid="identification-input"
-                    type={props.identificationType === "email" ? "email" : "text"}
+                    type={isEmail ? "email" : "text"}
                     value={identification}
-                    placeholder={t(props.identificationType === "email" ? "Email address" : "Username")}
-                    floatLabelType="Auto"
-                    change={(args: ChangedEventArgs) => setIdentification(args.value ?? "")}
-                    data-msg-containerid="identification-error"
+                    placeholder={t(`Enter your ${isEmail ? "email" : "username"}`)}
+                    onChange={(e) => setIdentification(e.target.value)}
+                    className="e-input"
                 />
                 {/* Error message */}
-                <p id="identification-error" data-testid="identification-error" />
-            </div>
-            <div>
+                <p data-testid="identification-error" className="text-red-500">
+                    {errors.identification}
+                </p>
+            </section>
+            <section>
+                <label htmlFor="password">Password</label>
                 <div className="e-input-group">
-                    <TextBoxComponent
+                    <input
                         name="password"
                         data-testid="password-input"
                         type={passwordType}
                         value={password}
-                        placeholder="Password"
-                        floatLabelType="Auto"
-                        change={(args: ChangedEventArgs) => setPassword(args.value ?? "")}
-                        data-msg-containerid="password-error"
+                        placeholder="********"
+                        onChange={(e) => setPassword(e.target.value)}
+                        className="e-input"
                     />
+                    {/* Password eye icon */}
                     <span
                         data-testid="password-eye"
                         className="e-input-group-icon fa-regular fa-eye"
@@ -90,8 +82,10 @@ export default function SignInForm(props: Props) {
                     />
                 </div>
                 {/* Error message */}
-                <p id="password-error" data-testid="password-error" />
-            </div>
+                <p data-testid="password-error" className="text-red-500">
+                    {errors.password}
+                </p>
+            </section>
             {/* Submit button */}
             <ButtonComponent data-testid="btn-submit" isPrimary content={t("Sign in")} className="w-full" />
         </form>
