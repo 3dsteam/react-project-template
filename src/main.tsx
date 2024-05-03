@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { registerLicense } from "@syncfusion/ej2-base";
-import { browserWorker } from "@mocks/index.ts";
+import browserWorker from "@mocks/browser.ts";
 import i18next from "i18next";
 import i18n from "./i18n.ts";
 import { setLocalStorage } from "@utils/storage.ts";
