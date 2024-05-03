@@ -454,10 +454,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fortawesome/fontawesome-pro@npm:^6.5.1":
-  version: 6.5.1
-  resolution: "@fortawesome/fontawesome-pro@npm:6.5.1::__archiveUrl=https%3A%2F%2Fnpm.fontawesome.com%2F%40fortawesome%2Ffontawesome-pro%2F-%2F6.5.1%2Ffontawesome-pro-6.5.1.tgz"
-  checksum: a9386171ba2660d6f279bc8cd24b5ec2e51fd69e557a6607ed5c7aa080032b11b0a2e2725fc8f5fcc8ce2b5501a58e0d8e7c81d0d390dcc569b172075553fc1e
+"@fortawesome/fontawesome-pro@npm:^6.5.2":
+  version: 6.5.2
+  resolution: "@fortawesome/fontawesome-pro@npm:6.5.2::__archiveUrl=https%3A%2F%2Fnpm.fontawesome.com%2F%40fortawesome%2Ffontawesome-pro%2F-%2F6.5.2%2Ffontawesome-pro-6.5.2.tgz"
+  checksum: f2e3287048840b656ff4aec5c221eef5eefd1431685a15380a96ccea44ec795b60266e3ee6861181ba486566d14f9755501e0b1c9a2d0fe115083607e7a95f4f
   languageName: node
   linkType: hard
 
@@ -690,9 +690,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@reduxjs/toolkit@npm:^2.1.0":
-  version: 2.1.0
-  resolution: "@reduxjs/toolkit@npm:2.1.0"
+"@reduxjs/toolkit@npm:^2.2.3":
+  version: 2.2.3
+  resolution: "@reduxjs/toolkit@npm:2.2.3"
   dependencies:
     immer: "npm:^10.0.3"
     redux: "npm:^5.0.1"
@@ -706,7 +706,7 @@ __metadata:
       optional: true
     react-redux:
       optional: true
-  checksum: 4ea9e9ea8cc2cab1c997127dc332c165cebc55bf8e95812ba4dc40d48dd87d5ee4bf3316b9eab49b5cce056eda6bdcb4b2a7dc3a15f056f64f76134f148f9f10
+  checksum: f10f2c8f4b6c5c7a65d8d60246bdfde86b6cd2f542210ebdda8002223c7f4e99ed32964825e63f37345d9d12532671150fcec2809a40690931ae44afe8aba7f8
   languageName: node
   linkType: hard
 
@@ -717,10 +717,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rollup/rollup-android-arm-eabi@npm:4.17.2":
+  version: 4.17.2
+  resolution: "@rollup/rollup-android-arm-eabi@npm:4.17.2"
+  conditions: os=android & cpu=arm
+  languageName: node
+  linkType: hard
+
 "@rollup/rollup-android-arm-eabi@npm:4.9.6":
   version: 4.9.6
   resolution: "@rollup/rollup-android-arm-eabi@npm:4.9.6"
   conditions: os=android & cpu=arm
+  languageName: node
+  linkType: hard
+
+"@rollup/rollup-android-arm64@npm:4.17.2":
+  version: 4.17.2
+  resolution: "@rollup/rollup-android-arm64@npm:4.17.2"
+  conditions: os=android & cpu=arm64
   languageName: node
   linkType: hard
 
@@ -731,10 +745,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rollup/rollup-darwin-arm64@npm:4.17.2":
+  version: 4.17.2
+  resolution: "@rollup/rollup-darwin-arm64@npm:4.17.2"
+  conditions: os=darwin & cpu=arm64
+  languageName: node
+  linkType: hard
+
 "@rollup/rollup-darwin-arm64@npm:4.9.6":
   version: 4.9.6
   resolution: "@rollup/rollup-darwin-arm64@npm:4.9.6"
   conditions: os=darwin & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@rollup/rollup-darwin-x64@npm:4.17.2":
+  version: 4.17.2
+  resolution: "@rollup/rollup-darwin-x64@npm:4.17.2"
+  conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
@@ -745,10 +773,31 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rollup/rollup-linux-arm-gnueabihf@npm:4.17.2":
+  version: 4.17.2
+  resolution: "@rollup/rollup-linux-arm-gnueabihf@npm:4.17.2"
+  conditions: os=linux & cpu=arm & libc=glibc
+  languageName: node
+  linkType: hard
+
 "@rollup/rollup-linux-arm-gnueabihf@npm:4.9.6":
   version: 4.9.6
   resolution: "@rollup/rollup-linux-arm-gnueabihf@npm:4.9.6"
   conditions: os=linux & cpu=arm
+  languageName: node
+  linkType: hard
+
+"@rollup/rollup-linux-arm-musleabihf@npm:4.17.2":
+  version: 4.17.2
+  resolution: "@rollup/rollup-linux-arm-musleabihf@npm:4.17.2"
+  conditions: os=linux & cpu=arm & libc=musl
+  languageName: node
+  linkType: hard
+
+"@rollup/rollup-linux-arm64-gnu@npm:4.17.2":
+  version: 4.17.2
+  resolution: "@rollup/rollup-linux-arm64-gnu@npm:4.17.2"
+  conditions: os=linux & cpu=arm64 & libc=glibc
   languageName: node
   linkType: hard
 
@@ -759,10 +808,31 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rollup/rollup-linux-arm64-musl@npm:4.17.2":
+  version: 4.17.2
+  resolution: "@rollup/rollup-linux-arm64-musl@npm:4.17.2"
+  conditions: os=linux & cpu=arm64 & libc=musl
+  languageName: node
+  linkType: hard
+
 "@rollup/rollup-linux-arm64-musl@npm:4.9.6":
   version: 4.9.6
   resolution: "@rollup/rollup-linux-arm64-musl@npm:4.9.6"
   conditions: os=linux & cpu=arm64 & libc=musl
+  languageName: node
+  linkType: hard
+
+"@rollup/rollup-linux-powerpc64le-gnu@npm:4.17.2":
+  version: 4.17.2
+  resolution: "@rollup/rollup-linux-powerpc64le-gnu@npm:4.17.2"
+  conditions: os=linux & cpu=ppc64 & libc=glibc
+  languageName: node
+  linkType: hard
+
+"@rollup/rollup-linux-riscv64-gnu@npm:4.17.2":
+  version: 4.17.2
+  resolution: "@rollup/rollup-linux-riscv64-gnu@npm:4.17.2"
+  conditions: os=linux & cpu=riscv64 & libc=glibc
   languageName: node
   linkType: hard
 
@@ -773,10 +843,31 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rollup/rollup-linux-s390x-gnu@npm:4.17.2":
+  version: 4.17.2
+  resolution: "@rollup/rollup-linux-s390x-gnu@npm:4.17.2"
+  conditions: os=linux & cpu=s390x & libc=glibc
+  languageName: node
+  linkType: hard
+
+"@rollup/rollup-linux-x64-gnu@npm:4.17.2":
+  version: 4.17.2
+  resolution: "@rollup/rollup-linux-x64-gnu@npm:4.17.2"
+  conditions: os=linux & cpu=x64 & libc=glibc
+  languageName: node
+  linkType: hard
+
 "@rollup/rollup-linux-x64-gnu@npm:4.9.6":
   version: 4.9.6
   resolution: "@rollup/rollup-linux-x64-gnu@npm:4.9.6"
   conditions: os=linux & cpu=x64 & libc=glibc
+  languageName: node
+  linkType: hard
+
+"@rollup/rollup-linux-x64-musl@npm:4.17.2":
+  version: 4.17.2
+  resolution: "@rollup/rollup-linux-x64-musl@npm:4.17.2"
+  conditions: os=linux & cpu=x64 & libc=musl
   languageName: node
   linkType: hard
 
@@ -787,6 +878,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rollup/rollup-win32-arm64-msvc@npm:4.17.2":
+  version: 4.17.2
+  resolution: "@rollup/rollup-win32-arm64-msvc@npm:4.17.2"
+  conditions: os=win32 & cpu=arm64
+  languageName: node
+  linkType: hard
+
 "@rollup/rollup-win32-arm64-msvc@npm:4.9.6":
   version: 4.9.6
   resolution: "@rollup/rollup-win32-arm64-msvc@npm:4.9.6"
@@ -794,10 +892,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rollup/rollup-win32-ia32-msvc@npm:4.17.2":
+  version: 4.17.2
+  resolution: "@rollup/rollup-win32-ia32-msvc@npm:4.17.2"
+  conditions: os=win32 & cpu=ia32
+  languageName: node
+  linkType: hard
+
 "@rollup/rollup-win32-ia32-msvc@npm:4.9.6":
   version: 4.9.6
   resolution: "@rollup/rollup-win32-ia32-msvc@npm:4.9.6"
   conditions: os=win32 & cpu=ia32
+  languageName: node
+  linkType: hard
+
+"@rollup/rollup-win32-x64-msvc@npm:4.17.2":
+  version: 4.17.2
+  resolution: "@rollup/rollup-win32-x64-msvc@npm:4.17.2"
+  conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
@@ -945,17 +1057,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@syncfusion/ej2-base@npm:~24.2.3, @syncfusion/ej2-base@npm:~24.2.7":
-  version: 24.2.7
-  resolution: "@syncfusion/ej2-base@npm:24.2.7"
-  dependencies:
-    "@syncfusion/ej2-icons": "npm:~24.2.3"
-  bin:
-    syncfusion-license: bin/syncfusion-license.js
-  checksum: f9b99ee7ac8851e7b5672161adf1e7e7fb22fbace7331343b4c2e830d7adbbf81c60bfaca28c7e43c363cee468f84bbecbf2aa8f5c92f0918e79ee05086560f7
-  languageName: node
-  linkType: hard
-
 "@syncfusion/ej2-base@npm:~25.1.35":
   version: 25.1.35
   resolution: "@syncfusion/ej2-base@npm:25.1.35"
@@ -967,7 +1068,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@syncfusion/ej2-buttons@npm:25.1.35, @syncfusion/ej2-buttons@npm:~25.1.35":
+"@syncfusion/ej2-buttons@npm:25.1.39, @syncfusion/ej2-buttons@npm:~25.1.39":
+  version: 25.1.39
+  resolution: "@syncfusion/ej2-buttons@npm:25.1.39"
+  dependencies:
+    "@syncfusion/ej2-base": "npm:~25.1.35"
+  checksum: 21f92b233d064fda6de2f7b38553c1fc8b87b40f934fb84d72d91cce4cb6f3bb055462f885c85a1b8d0f13d658a68247eb1c7c9efb7fa1454bf57cfafc100b76
+  languageName: node
+  linkType: hard
+
+"@syncfusion/ej2-buttons@npm:~25.1.35":
   version: 25.1.35
   resolution: "@syncfusion/ej2-buttons@npm:25.1.35"
   dependencies:
@@ -976,105 +1086,89 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@syncfusion/ej2-buttons@npm:~24.2.3, @syncfusion/ej2-buttons@npm:~24.2.7":
-  version: 24.2.7
-  resolution: "@syncfusion/ej2-buttons@npm:24.2.7"
+"@syncfusion/ej2-calendars@npm:~25.1.42":
+  version: 25.1.42
+  resolution: "@syncfusion/ej2-calendars@npm:25.1.42"
   dependencies:
-    "@syncfusion/ej2-base": "npm:~24.2.7"
-  checksum: a0564899cd7c894061aec97a0ba91f9336fe71a655c423f34b3d7e223b7455fa79ac816fbc812c3bf2f088e721c4c10dd7066ec3383afa1285c7123f2845e918
+    "@syncfusion/ej2-base": "npm:~25.1.35"
+    "@syncfusion/ej2-buttons": "npm:~25.1.39"
+    "@syncfusion/ej2-inputs": "npm:~25.1.42"
+    "@syncfusion/ej2-lists": "npm:~25.1.41"
+    "@syncfusion/ej2-popups": "npm:~25.1.42"
+  checksum: f7e54c072856c374f3f946c40809efcab4b17cce4680b95560eac9f514c7fcebca874e34858764275de4a2092ffa4d9fc5cdc78d357b4ccba52e25cfa191d58c
   languageName: node
   linkType: hard
 
-"@syncfusion/ej2-calendars@npm:~24.2.8":
-  version: 24.2.8
-  resolution: "@syncfusion/ej2-calendars@npm:24.2.8"
+"@syncfusion/ej2-compression@npm:~25.1.35":
+  version: 25.1.35
+  resolution: "@syncfusion/ej2-compression@npm:25.1.35"
   dependencies:
-    "@syncfusion/ej2-base": "npm:~24.2.7"
-    "@syncfusion/ej2-buttons": "npm:~24.2.7"
-    "@syncfusion/ej2-inputs": "npm:~24.2.7"
-    "@syncfusion/ej2-lists": "npm:~24.2.8"
-    "@syncfusion/ej2-popups": "npm:~24.2.8"
-  checksum: c5074d30b1c149e3347ada092f9a6be2f5f3f754d75bfa44ac8dd19fd7dc6e26160d6545a88da5cdf2c158402f32f1520b2bb643487447b0a2dd0f4d796ea399
+    "@syncfusion/ej2-file-utils": "npm:~25.1.35"
+  checksum: 313052694a3af423ffcae7b1559f1cdc676b1b1c3aaf345505f1abb6a7f29099ad2363d04b6e71a0d9e711890af96b4c273e43d0a3f2ce55e6363f2ef2bd4167
   languageName: node
   linkType: hard
 
-"@syncfusion/ej2-compression@npm:~24.2.3":
-  version: 24.2.3
-  resolution: "@syncfusion/ej2-compression@npm:24.2.3"
+"@syncfusion/ej2-data@npm:~25.1.35":
+  version: 25.1.35
+  resolution: "@syncfusion/ej2-data@npm:25.1.35"
   dependencies:
-    "@syncfusion/ej2-file-utils": "npm:~24.2.3"
-  checksum: f0f1a2a0d9eb17265f568f353ae7f054bea6f412e068ea8a06dc57b511734e7908e119c8cd98cac2280021b910567bc3c026b2aff80dd89835ea38a744b94c4c
+    "@syncfusion/ej2-base": "npm:~25.1.35"
+  checksum: acb6064919f6964f58f100fe8b7da2aa2eb4e508aca7d69f3628569d4d50c8df862a476bc04cdd0cbb53386752255b7a6fe31ef20c67a0efe7ff16038b2de41b
   languageName: node
   linkType: hard
 
-"@syncfusion/ej2-data@npm:~24.2.3":
-  version: 24.2.3
-  resolution: "@syncfusion/ej2-data@npm:24.2.3"
+"@syncfusion/ej2-dropdowns@npm:~25.1.41":
+  version: 25.1.41
+  resolution: "@syncfusion/ej2-dropdowns@npm:25.1.41"
   dependencies:
-    "@syncfusion/ej2-base": "npm:~24.2.3"
-  checksum: c2a92f8f114283d65c8a161c1871fc0824ae3ba3faadc96d4d3fb62ee94a5ef3857084522095cd2f80a33841e109c1b3358f6430aa7683552f31ed15b6b28b62
+    "@syncfusion/ej2-base": "npm:~25.1.35"
+    "@syncfusion/ej2-data": "npm:~25.1.35"
+    "@syncfusion/ej2-inputs": "npm:~25.1.40"
+    "@syncfusion/ej2-lists": "npm:~25.1.41"
+    "@syncfusion/ej2-navigations": "npm:~25.1.41"
+    "@syncfusion/ej2-notifications": "npm:~25.1.35"
+    "@syncfusion/ej2-popups": "npm:~25.1.41"
+  checksum: 9b3821ff87b978ef757fbe5bcf74f9f1226ba2c49043b327b9d942db42936341cd9f6c4efe6ad2b9bd8697f1ec8f20f0e232db6a81e08e09d3b3735ac0e6ca85
   languageName: node
   linkType: hard
 
-"@syncfusion/ej2-dropdowns@npm:~24.2.8":
-  version: 24.2.8
-  resolution: "@syncfusion/ej2-dropdowns@npm:24.2.8"
+"@syncfusion/ej2-excel-export@npm:~25.1.35":
+  version: 25.1.35
+  resolution: "@syncfusion/ej2-excel-export@npm:25.1.35"
   dependencies:
-    "@syncfusion/ej2-base": "npm:~24.2.7"
-    "@syncfusion/ej2-data": "npm:~24.2.3"
-    "@syncfusion/ej2-inputs": "npm:~24.2.7"
-    "@syncfusion/ej2-lists": "npm:~24.2.8"
-    "@syncfusion/ej2-navigations": "npm:~24.2.8"
-    "@syncfusion/ej2-notifications": "npm:~24.2.4"
-    "@syncfusion/ej2-popups": "npm:~24.2.8"
-  checksum: e77953c85a55480663d798925029232e90d44ca40cf95ea8ec3c683553ac16392c646874c52cadb6f00a33e7adc3c42ef5cecebadfd95b09231f37ad82d10c25
+    "@syncfusion/ej2-base": "npm:~25.1.35"
+    "@syncfusion/ej2-compression": "npm:~25.1.35"
+  checksum: 207e3f0640d3add54abd291d6b94c51f97aa0b41b0a6a8ca6b86494e43d4277c808ca7d7c2055446c639a1cff11180e996650d6716dc0fc2e4388fd15e0131e6
   languageName: node
   linkType: hard
 
-"@syncfusion/ej2-excel-export@npm:~24.2.4":
-  version: 24.2.4
-  resolution: "@syncfusion/ej2-excel-export@npm:24.2.4"
+"@syncfusion/ej2-file-utils@npm:~25.1.35":
+  version: 25.1.35
+  resolution: "@syncfusion/ej2-file-utils@npm:25.1.35"
+  checksum: 4ec69bffccf7c76fa26aad7b02e0e4b2fe680d4f9b70a803e6eb0ea4197cc9174f65607037c4ca3b877d0c315bf707f9e51d14f715c2a778a03c9cdb31fa1b1f
+  languageName: node
+  linkType: hard
+
+"@syncfusion/ej2-grids@npm:25.1.42":
+  version: 25.1.42
+  resolution: "@syncfusion/ej2-grids@npm:25.1.42"
   dependencies:
-    "@syncfusion/ej2-base": "npm:~24.2.3"
-    "@syncfusion/ej2-compression": "npm:~24.2.3"
-  checksum: d8fa46fb6cb2251bc3f2192054292f4bb947ac1944db6de5e3e3c1cf38f2b22fed484dc1f89765c085825770448a72f14959003e321b36d41ac99f90adc353b6
-  languageName: node
-  linkType: hard
-
-"@syncfusion/ej2-file-utils@npm:~24.2.3":
-  version: 24.2.3
-  resolution: "@syncfusion/ej2-file-utils@npm:24.2.3"
-  checksum: 38f053e0ad2f422d0a723bda79ba18d10f5f66aabe4cb27ed9068d496129329325ab088cceaf403c002f4150e15e84706f0b7c8105f07e2566c3329b4f73f2a3
-  languageName: node
-  linkType: hard
-
-"@syncfusion/ej2-grids@npm:24.2.8":
-  version: 24.2.8
-  resolution: "@syncfusion/ej2-grids@npm:24.2.8"
-  dependencies:
-    "@syncfusion/ej2-base": "npm:~24.2.7"
-    "@syncfusion/ej2-buttons": "npm:~24.2.7"
-    "@syncfusion/ej2-calendars": "npm:~24.2.8"
-    "@syncfusion/ej2-compression": "npm:~24.2.3"
-    "@syncfusion/ej2-data": "npm:~24.2.3"
-    "@syncfusion/ej2-dropdowns": "npm:~24.2.8"
-    "@syncfusion/ej2-excel-export": "npm:~24.2.4"
-    "@syncfusion/ej2-file-utils": "npm:~24.2.3"
-    "@syncfusion/ej2-inputs": "npm:~24.2.7"
-    "@syncfusion/ej2-lists": "npm:~24.2.8"
-    "@syncfusion/ej2-navigations": "npm:~24.2.8"
-    "@syncfusion/ej2-notifications": "npm:~24.2.4"
-    "@syncfusion/ej2-pdf-export": "npm:~24.2.3"
-    "@syncfusion/ej2-popups": "npm:~24.2.8"
-    "@syncfusion/ej2-splitbuttons": "npm:~24.2.7"
-  checksum: 1bc79f67ccb83a0a5dabf4629428848703421bc43cbf1d8adec560ece9b2d2eb69f83efc025af07b4dfa7f3e9d68d23f8fc53735d6f4d329afc3b6b2b2501508
-  languageName: node
-  linkType: hard
-
-"@syncfusion/ej2-icons@npm:~24.2.3":
-  version: 24.2.3
-  resolution: "@syncfusion/ej2-icons@npm:24.2.3"
-  checksum: 198cb629fdc1bcede92df0b217bfd231063891e9f7a7800b733b23a2e3a1378ac21f87a15c519c77c9a0629b69bfd4ac1ee55f25720fc94e95f537379a8f5659
+    "@syncfusion/ej2-base": "npm:~25.1.35"
+    "@syncfusion/ej2-buttons": "npm:~25.1.39"
+    "@syncfusion/ej2-calendars": "npm:~25.1.42"
+    "@syncfusion/ej2-compression": "npm:~25.1.35"
+    "@syncfusion/ej2-data": "npm:~25.1.35"
+    "@syncfusion/ej2-dropdowns": "npm:~25.1.41"
+    "@syncfusion/ej2-excel-export": "npm:~25.1.35"
+    "@syncfusion/ej2-file-utils": "npm:~25.1.35"
+    "@syncfusion/ej2-inputs": "npm:~25.1.42"
+    "@syncfusion/ej2-lists": "npm:~25.1.41"
+    "@syncfusion/ej2-navigations": "npm:~25.1.42"
+    "@syncfusion/ej2-notifications": "npm:~25.1.35"
+    "@syncfusion/ej2-pdf-export": "npm:~25.1.38"
+    "@syncfusion/ej2-popups": "npm:~25.1.42"
+    "@syncfusion/ej2-splitbuttons": "npm:~25.1.38"
+  checksum: 36ec93e52ea558d338e9267035c815c88812da573f99f4055fd9050a50c4ec32643830c1f364ce7857e3ceab7b63f70f202589b061803b7350af9dbee50e7edd
   languageName: node
   linkType: hard
 
@@ -1085,83 +1179,61 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@syncfusion/ej2-inputs@npm:25.1.35":
+"@syncfusion/ej2-inputs@npm:25.1.42, @syncfusion/ej2-inputs@npm:~25.1.40, @syncfusion/ej2-inputs@npm:~25.1.42":
+  version: 25.1.42
+  resolution: "@syncfusion/ej2-inputs@npm:25.1.42"
+  dependencies:
+    "@syncfusion/ej2-base": "npm:~25.1.35"
+    "@syncfusion/ej2-buttons": "npm:~25.1.39"
+    "@syncfusion/ej2-popups": "npm:~25.1.42"
+    "@syncfusion/ej2-splitbuttons": "npm:~25.1.38"
+  checksum: 8dabb5ba203cd949350a2e3c65aee4b3fd7e16318612740859aea9841eb82fa2f3bbb47946c64b2862edf331f76d9e95b7f6c2140b1e222f9446204d58e992c4
+  languageName: node
+  linkType: hard
+
+"@syncfusion/ej2-lists@npm:~25.1.41":
+  version: 25.1.41
+  resolution: "@syncfusion/ej2-lists@npm:25.1.41"
+  dependencies:
+    "@syncfusion/ej2-base": "npm:~25.1.35"
+    "@syncfusion/ej2-buttons": "npm:~25.1.39"
+    "@syncfusion/ej2-data": "npm:~25.1.35"
+    "@syncfusion/ej2-popups": "npm:~25.1.41"
+  checksum: f752bd8e000e348354832179f1da68f2d8241ceb50dafe6f387e1f1eadec7b3b5c6c7dfca097e67ca012f322b2dacba486a1c678cf2b56a4c776f4af8b7337f8
+  languageName: node
+  linkType: hard
+
+"@syncfusion/ej2-navigations@npm:~25.1.41, @syncfusion/ej2-navigations@npm:~25.1.42":
+  version: 25.1.42
+  resolution: "@syncfusion/ej2-navigations@npm:25.1.42"
+  dependencies:
+    "@syncfusion/ej2-base": "npm:~25.1.35"
+    "@syncfusion/ej2-buttons": "npm:~25.1.39"
+    "@syncfusion/ej2-data": "npm:~25.1.35"
+    "@syncfusion/ej2-inputs": "npm:~25.1.42"
+    "@syncfusion/ej2-lists": "npm:~25.1.41"
+    "@syncfusion/ej2-popups": "npm:~25.1.42"
+  checksum: ff76b9f5e5473944a9eac39c2f327f84ffd9d2780fd46358ac1da1ccd63217078813d9c7d40feb44ad8edc5a999e9822bfc06df158766be202bfafa00f065003
+  languageName: node
+  linkType: hard
+
+"@syncfusion/ej2-notifications@npm:~25.1.35":
   version: 25.1.35
-  resolution: "@syncfusion/ej2-inputs@npm:25.1.35"
+  resolution: "@syncfusion/ej2-notifications@npm:25.1.35"
   dependencies:
     "@syncfusion/ej2-base": "npm:~25.1.35"
     "@syncfusion/ej2-buttons": "npm:~25.1.35"
     "@syncfusion/ej2-popups": "npm:~25.1.35"
-    "@syncfusion/ej2-splitbuttons": "npm:~25.1.35"
-  checksum: fab405b478bb952fdd47aed615e6c2018200357042b113eba7590a13d91be762d1300081bc3996bf53c722e4b04224214f0c9e411933ac3d2addb9dddcfa6873
+  checksum: 2edde09ba2f87debefdb5647c85d1b7001ab63d40d338d915a2d1a94316ff37760acecd870c8dee2723a719ef07fb44d5090a505bddf7ee4d182e47b2f3b30cd
   languageName: node
   linkType: hard
 
-"@syncfusion/ej2-inputs@npm:~24.2.7":
-  version: 24.2.7
-  resolution: "@syncfusion/ej2-inputs@npm:24.2.7"
+"@syncfusion/ej2-pdf-export@npm:~25.1.38":
+  version: 25.1.38
+  resolution: "@syncfusion/ej2-pdf-export@npm:25.1.38"
   dependencies:
-    "@syncfusion/ej2-base": "npm:~24.2.7"
-    "@syncfusion/ej2-buttons": "npm:~24.2.7"
-    "@syncfusion/ej2-popups": "npm:~24.2.5"
-    "@syncfusion/ej2-splitbuttons": "npm:~24.2.7"
-  checksum: f83204a7d8d61575a7672c9492a76da468146d788ef6c90d095f20535e44ee00bb804cf3f5aaf23e3e67420bccf5860b25b12d3a8e38ce136bb741d60943bbc3
-  languageName: node
-  linkType: hard
-
-"@syncfusion/ej2-lists@npm:~24.2.8":
-  version: 24.2.8
-  resolution: "@syncfusion/ej2-lists@npm:24.2.8"
-  dependencies:
-    "@syncfusion/ej2-base": "npm:~24.2.7"
-    "@syncfusion/ej2-buttons": "npm:~24.2.7"
-    "@syncfusion/ej2-data": "npm:~24.2.3"
-    "@syncfusion/ej2-popups": "npm:~24.2.8"
-  checksum: c50d28974978f9e0fc167363f0efc804bf28278fae820b43c77600e29a1796af2c6f280bb01173ff016f851a0b470ab53f2b18ca5fecb122ee2e7f072deb40aa
-  languageName: node
-  linkType: hard
-
-"@syncfusion/ej2-navigations@npm:~24.2.8":
-  version: 24.2.8
-  resolution: "@syncfusion/ej2-navigations@npm:24.2.8"
-  dependencies:
-    "@syncfusion/ej2-base": "npm:~24.2.7"
-    "@syncfusion/ej2-buttons": "npm:~24.2.7"
-    "@syncfusion/ej2-data": "npm:~24.2.3"
-    "@syncfusion/ej2-inputs": "npm:~24.2.7"
-    "@syncfusion/ej2-lists": "npm:~24.2.8"
-    "@syncfusion/ej2-popups": "npm:~24.2.8"
-  checksum: f1dae960ca433da5da96100ef8c883b5e51d8cda700c1dce30cf778bb86c6480469aeab9ee36944ec1b2ba3985596ceb23a57e76bc6fc7bf83cb7c8cfa2bfb54
-  languageName: node
-  linkType: hard
-
-"@syncfusion/ej2-notifications@npm:~24.2.4":
-  version: 24.2.4
-  resolution: "@syncfusion/ej2-notifications@npm:24.2.4"
-  dependencies:
-    "@syncfusion/ej2-base": "npm:~24.2.3"
-    "@syncfusion/ej2-buttons": "npm:~24.2.3"
-    "@syncfusion/ej2-popups": "npm:~24.2.3"
-  checksum: 6b1b5e5e8524f290f4400fd1604e153e7c14ca60b80f80057060f32f5a9172230a663a0b29a9b26ee4528d7f04def584a9b057951ee2338b047d5ef613094424
-  languageName: node
-  linkType: hard
-
-"@syncfusion/ej2-pdf-export@npm:~24.2.3":
-  version: 24.2.3
-  resolution: "@syncfusion/ej2-pdf-export@npm:24.2.3"
-  dependencies:
-    "@syncfusion/ej2-compression": "npm:~24.2.3"
-  checksum: aacb637c46c9b12e805857a7de329f1927aa66fa71825d18aa90e8d17a622a8ee563b27377b2aad7e56c81fc3826282a3b970c7c720ed7973918af819f19a134
-  languageName: node
-  linkType: hard
-
-"@syncfusion/ej2-popups@npm:~24.2.3, @syncfusion/ej2-popups@npm:~24.2.5, @syncfusion/ej2-popups@npm:~24.2.8":
-  version: 24.2.8
-  resolution: "@syncfusion/ej2-popups@npm:24.2.8"
-  dependencies:
-    "@syncfusion/ej2-base": "npm:~24.2.7"
-    "@syncfusion/ej2-buttons": "npm:~24.2.7"
-  checksum: 701f3148e1d5734f3fab3e4862bb0d29cd735f1395f1831a3799f40bf7d3f8653c2f2a2bbe2a5f4c8df74839d68fc1537bbbf117218e957b9dddc5367325ad38
+    "@syncfusion/ej2-compression": "npm:~25.1.35"
+  checksum: f4a1f86027e6474d64c6812b873ff958d4a79135399925b6a1ceefb20e86577aa520198d0b97e802caddbd7b5619dc68b7ff697140dfc87255098b817c1e2c7d
   languageName: node
   linkType: hard
 
@@ -1175,12 +1247,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@syncfusion/ej2-react-base@npm:~24.2.7":
-  version: 24.2.7
-  resolution: "@syncfusion/ej2-react-base@npm:24.2.7"
+"@syncfusion/ej2-popups@npm:~25.1.38, @syncfusion/ej2-popups@npm:~25.1.41, @syncfusion/ej2-popups@npm:~25.1.42":
+  version: 25.1.42
+  resolution: "@syncfusion/ej2-popups@npm:25.1.42"
   dependencies:
-    "@syncfusion/ej2-base": "npm:~24.2.7"
-  checksum: d8480a3a61745f3f0a5d6ff88ad16d8947fee70e0fe0b46053bc750d00a26053d5c89bad61f555110e12d7de051b7e562548a98a87a7ae0a04e11986ff17aa05
+    "@syncfusion/ej2-base": "npm:~25.1.35"
+    "@syncfusion/ej2-buttons": "npm:~25.1.39"
+  checksum: 3a9df3e82e97fe59743fe10b793af7b2771f162fc60fae2d0f4854c2245c2739845ae3a9966c41025db88f8186682db247342cac77dd8ef32eddf07624036b97
   languageName: node
   linkType: hard
 
@@ -1193,56 +1266,46 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@syncfusion/ej2-react-buttons@npm:^25.1.35":
-  version: 25.1.35
-  resolution: "@syncfusion/ej2-react-buttons@npm:25.1.35"
+"@syncfusion/ej2-react-buttons@npm:^25.1.39":
+  version: 25.1.39
+  resolution: "@syncfusion/ej2-react-buttons@npm:25.1.39"
   dependencies:
     "@syncfusion/ej2-base": "npm:~25.1.35"
-    "@syncfusion/ej2-buttons": "npm:25.1.35"
+    "@syncfusion/ej2-buttons": "npm:25.1.39"
     "@syncfusion/ej2-react-base": "npm:~25.1.35"
-  checksum: 62c5807a49110e3be757e06b4dff854b68de6234da5c47431ae6d3af6c62da1cf477e62620b6b3d1d0dcb817f9dfe0a512896c7b2f161fa254fd38cb456c5c99
+  checksum: 8612a1921a61211a904467c71081c9e1392be966ddc7f2158d3fc1b73f566054e8c1d96e5088cdfe6aa756ebe477daedf13053619f38e0c7a37a2204713c6205
   languageName: node
   linkType: hard
 
-"@syncfusion/ej2-react-grids@npm:^24.2.8":
-  version: 24.2.8
-  resolution: "@syncfusion/ej2-react-grids@npm:24.2.8"
-  dependencies:
-    "@syncfusion/ej2-base": "npm:~24.2.7"
-    "@syncfusion/ej2-grids": "npm:24.2.8"
-    "@syncfusion/ej2-react-base": "npm:~24.2.7"
-  checksum: b3992753e60cbb98196be3578346376e15d75e59a3eb81fb9ff3cbd0d9e3a041ab43a4c9bbe0170b4cce11a14c70bec4e62a0dd7bc242261bace168d65985974
-  languageName: node
-  linkType: hard
-
-"@syncfusion/ej2-react-inputs@npm:^25.1.35":
-  version: 25.1.35
-  resolution: "@syncfusion/ej2-react-inputs@npm:25.1.35"
+"@syncfusion/ej2-react-grids@npm:^25.1.42":
+  version: 25.1.42
+  resolution: "@syncfusion/ej2-react-grids@npm:25.1.42"
   dependencies:
     "@syncfusion/ej2-base": "npm:~25.1.35"
-    "@syncfusion/ej2-inputs": "npm:25.1.35"
+    "@syncfusion/ej2-grids": "npm:25.1.42"
     "@syncfusion/ej2-react-base": "npm:~25.1.35"
-  checksum: f18d7fc564d3a82f03336b3e457eed80f2c2e3247ae2bf0ddec8116eba6c22913b03e056931457c52824f4bed8481180696583b8b49ffeec0f7976653f072663
+  checksum: 7bdecb050612daffda4a2298d458c94df3fb1037722e2b8c0b3397c810f5b6c52f6356c10a2bf56af2dc70fc2a85d0c81fa5e8aa3946f3f12738e257e697689b
   languageName: node
   linkType: hard
 
-"@syncfusion/ej2-splitbuttons@npm:~24.2.7":
-  version: 24.2.7
-  resolution: "@syncfusion/ej2-splitbuttons@npm:24.2.7"
-  dependencies:
-    "@syncfusion/ej2-base": "npm:~24.2.7"
-    "@syncfusion/ej2-popups": "npm:~24.2.5"
-  checksum: 868530e57896dfee41593e7bc12d06dc96a521ca9868fabe5fbfba37cc542e35d10946924c877ec3f92825c8c7d970f7ddcfec2aca59fb126d432fa3c6451c45
-  languageName: node
-  linkType: hard
-
-"@syncfusion/ej2-splitbuttons@npm:~25.1.35":
-  version: 25.1.35
-  resolution: "@syncfusion/ej2-splitbuttons@npm:25.1.35"
+"@syncfusion/ej2-react-inputs@npm:^25.1.42":
+  version: 25.1.42
+  resolution: "@syncfusion/ej2-react-inputs@npm:25.1.42"
   dependencies:
     "@syncfusion/ej2-base": "npm:~25.1.35"
-    "@syncfusion/ej2-popups": "npm:~25.1.35"
-  checksum: c4cb8daff20428f5b5a5cf31dab1c310e20b9b73869f72e151768734452dcadc0f2b3dd020d2961a18ccd2dda287caae3c9f6b424c8bca27acb5bf3a9f797971
+    "@syncfusion/ej2-inputs": "npm:25.1.42"
+    "@syncfusion/ej2-react-base": "npm:~25.1.35"
+  checksum: 70af021422872a1ee924355979df46965e26c9e0372772eedd1777af8fe52d4e5ccfe04da34696a0085afabb280e9e9a4e62d9ba71fce42ac22638f04ac4a052
+  languageName: node
+  linkType: hard
+
+"@syncfusion/ej2-splitbuttons@npm:~25.1.38":
+  version: 25.1.38
+  resolution: "@syncfusion/ej2-splitbuttons@npm:25.1.38"
+  dependencies:
+    "@syncfusion/ej2-base": "npm:~25.1.35"
+    "@syncfusion/ej2-popups": "npm:~25.1.38"
+  checksum: 379d960b189a88581ba475c41c2e719c31ae9581508c4ae87af850a957aa17bfb11e8365de64726508ceab78a3aaae27eef9e94e6b335ad61e981b6e48521f28
   languageName: node
   linkType: hard
 
@@ -1702,57 +1765,57 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vitest/expect@npm:1.2.2":
-  version: 1.2.2
-  resolution: "@vitest/expect@npm:1.2.2"
+"@vitest/expect@npm:1.5.3":
+  version: 1.5.3
+  resolution: "@vitest/expect@npm:1.5.3"
   dependencies:
-    "@vitest/spy": "npm:1.2.2"
-    "@vitest/utils": "npm:1.2.2"
+    "@vitest/spy": "npm:1.5.3"
+    "@vitest/utils": "npm:1.5.3"
     chai: "npm:^4.3.10"
-  checksum: 920e80b956d9d5ef7909cbe2bf883c8556da11c5123ea037396cb672d7038116c9773bd36915a3df7be2ffd76b661d5a6487e7e5ded78f39e2500cb36ae81e59
+  checksum: 38f4419ced67931d0dffb31cfc1d0e1efaf53927a373ed3d371bf8e4de40a962100438f63058e4ca8581c72a3892315ba3be6d5718109df9a559422cec212770
   languageName: node
   linkType: hard
 
-"@vitest/runner@npm:1.2.2":
-  version: 1.2.2
-  resolution: "@vitest/runner@npm:1.2.2"
+"@vitest/runner@npm:1.5.3":
+  version: 1.5.3
+  resolution: "@vitest/runner@npm:1.5.3"
   dependencies:
-    "@vitest/utils": "npm:1.2.2"
+    "@vitest/utils": "npm:1.5.3"
     p-limit: "npm:^5.0.0"
     pathe: "npm:^1.1.1"
-  checksum: 25a9c03cca5b40738fe606757b14ee9d60d25193115b4674e3cc402c2b2c3844d234902d48bfa7646cb205455ea27891fef96733e033a570b85fe74ed29ff81c
+  checksum: 7d0021b2b2cb173be6cb9b5a4d150dcae5194bc7d14a3df1b69e752c691ecebf638ee856b78b8f85cc55925793dbb101c5797af94535cbdbf70da60101786d85
   languageName: node
   linkType: hard
 
-"@vitest/snapshot@npm:1.2.2":
-  version: 1.2.2
-  resolution: "@vitest/snapshot@npm:1.2.2"
+"@vitest/snapshot@npm:1.5.3":
+  version: 1.5.3
+  resolution: "@vitest/snapshot@npm:1.5.3"
   dependencies:
     magic-string: "npm:^0.30.5"
     pathe: "npm:^1.1.1"
     pretty-format: "npm:^29.7.0"
-  checksum: 0f8a69a289aa6466c7dd56f8327190d56a0bc7ad10412127de001c94784f6dba5e5bccb757def21f565f4efa3e00c307b92e8b6c302f11fc57889b743ba18a95
+  checksum: 9f143290c2208847290c49f59a3869f4b0229a5c9770fe612cc9c1e103eb5e8c80cdc5803cf1bb3e22900a3899d45e9979cf2b891080b0c3a85a346964425b8b
   languageName: node
   linkType: hard
 
-"@vitest/spy@npm:1.2.2":
-  version: 1.2.2
-  resolution: "@vitest/spy@npm:1.2.2"
+"@vitest/spy@npm:1.5.3":
+  version: 1.5.3
+  resolution: "@vitest/spy@npm:1.5.3"
   dependencies:
     tinyspy: "npm:^2.2.0"
-  checksum: 5480048d26c0d82b524317552fbdcc05fed6ea626d887620647826453a344798a360f2a75af477512a1569b1b6c918eae62338e8b35575f875fc2d7ef51419f3
+  checksum: d69e735d377b9370eccb8ae3f6d51e9540fbc7b2f05ecc2158e2e2a2793237481cff629840f61394266e2dda5b30069880c658cca1430197781c845364d509b0
   languageName: node
   linkType: hard
 
-"@vitest/utils@npm:1.2.2":
-  version: 1.2.2
-  resolution: "@vitest/utils@npm:1.2.2"
+"@vitest/utils@npm:1.5.3":
+  version: 1.5.3
+  resolution: "@vitest/utils@npm:1.5.3"
   dependencies:
     diff-sequences: "npm:^29.6.3"
     estree-walker: "npm:^3.0.3"
     loupe: "npm:^2.3.7"
     pretty-format: "npm:^29.7.0"
-  checksum: 32449cb7eca8ecea56e0fce280c9770f65fa6b60bbba73be06ca2891096818899b4b3220bd3c815df8beb4266034db394fcf235e4de8959cce686b8b360948d1
+  checksum: 1d5a1717f5d43e111c865b4dc8b1844ee3c1a858f87f3959f4ed321fa1c4affbd3a9cf1729215859c08bc3248559020fa5388bad9814000fd20d474c3c711db5
   languageName: node
   linkType: hard
 
@@ -3103,7 +3166,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild@npm:~0.20.2":
+"esbuild@npm:^0.20.1, esbuild@npm:~0.20.2":
   version: 0.20.2
   resolution: "esbuild@npm:0.20.2"
   dependencies:
@@ -4628,6 +4691,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"js-tokens@npm:^9.0.0":
+  version: 9.0.0
+  resolution: "js-tokens@npm:9.0.0"
+  checksum: 4ad1c12f47b8c8b2a3a99e29ef338c1385c7b7442198a425f3463f3537384dab6032012791bfc2f056ea5ecdb06b1ed4f70e11a3ab3f388d3dcebfe16a52b27d
+  languageName: node
+  linkType: hard
+
 "js-yaml@npm:^4.1.0":
   version: 4.1.0
   resolution: "js-yaml@npm:4.1.0"
@@ -5890,6 +5960,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"postcss@npm:^8.4.38":
+  version: 8.4.38
+  resolution: "postcss@npm:8.4.38"
+  dependencies:
+    nanoid: "npm:^3.3.7"
+    picocolors: "npm:^1.0.0"
+    source-map-js: "npm:^1.2.0"
+  checksum: 955407b8f70cf0c14acf35dab3615899a2a60a26718a63c848cf3c29f2467b0533991b985a2b994430d890bd7ec2b1963e36352b0774a19143b5f591540f7c06
+  languageName: node
+  linkType: hard
+
 "prelude-ls@npm:^1.2.1":
   version: 1.2.1
   resolution: "prelude-ls@npm:1.2.1"
@@ -6077,12 +6158,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "react-project-template@workspace:."
   dependencies:
-    "@fortawesome/fontawesome-pro": "npm:^6.5.1"
+    "@fortawesome/fontawesome-pro": "npm:^6.5.2"
     "@mswjs/http-middleware": "npm:^0.10.1"
-    "@reduxjs/toolkit": "npm:^2.1.0"
-    "@syncfusion/ej2-react-buttons": "npm:^25.1.35"
-    "@syncfusion/ej2-react-grids": "npm:^24.2.8"
-    "@syncfusion/ej2-react-inputs": "npm:^25.1.35"
+    "@reduxjs/toolkit": "npm:^2.2.3"
+    "@syncfusion/ej2-react-buttons": "npm:^25.1.39"
+    "@syncfusion/ej2-react-grids": "npm:^25.1.42"
+    "@syncfusion/ej2-react-inputs": "npm:^25.1.42"
     "@testing-library/jest-dom": "npm:^6.4.0"
     "@testing-library/react": "npm:^14.1.2"
     "@types/cors": "npm:^2"
@@ -6120,8 +6201,8 @@ __metadata:
     tailwindcss: "npm:^3.4.1"
     tsx: "npm:^4.9.0"
     typescript: "npm:^5.3.3"
-    vite: "npm:^5.0.12"
-    vitest: "npm:^1.2.2"
+    vite: "npm:^5.2.11"
+    vitest: "npm:^1.5.3"
   languageName: unknown
   linkType: soft
 
@@ -6404,6 +6485,69 @@ __metadata:
   bin:
     rimraf: bin.js
   checksum: 9cb7757acb489bd83757ba1a274ab545eafd75598a9d817e0c3f8b164238dd90eba50d6b848bd4dcc5f3040912e882dc7ba71653e35af660d77b25c381d402e8
+  languageName: node
+  linkType: hard
+
+"rollup@npm:^4.13.0":
+  version: 4.17.2
+  resolution: "rollup@npm:4.17.2"
+  dependencies:
+    "@rollup/rollup-android-arm-eabi": "npm:4.17.2"
+    "@rollup/rollup-android-arm64": "npm:4.17.2"
+    "@rollup/rollup-darwin-arm64": "npm:4.17.2"
+    "@rollup/rollup-darwin-x64": "npm:4.17.2"
+    "@rollup/rollup-linux-arm-gnueabihf": "npm:4.17.2"
+    "@rollup/rollup-linux-arm-musleabihf": "npm:4.17.2"
+    "@rollup/rollup-linux-arm64-gnu": "npm:4.17.2"
+    "@rollup/rollup-linux-arm64-musl": "npm:4.17.2"
+    "@rollup/rollup-linux-powerpc64le-gnu": "npm:4.17.2"
+    "@rollup/rollup-linux-riscv64-gnu": "npm:4.17.2"
+    "@rollup/rollup-linux-s390x-gnu": "npm:4.17.2"
+    "@rollup/rollup-linux-x64-gnu": "npm:4.17.2"
+    "@rollup/rollup-linux-x64-musl": "npm:4.17.2"
+    "@rollup/rollup-win32-arm64-msvc": "npm:4.17.2"
+    "@rollup/rollup-win32-ia32-msvc": "npm:4.17.2"
+    "@rollup/rollup-win32-x64-msvc": "npm:4.17.2"
+    "@types/estree": "npm:1.0.5"
+    fsevents: "npm:~2.3.2"
+  dependenciesMeta:
+    "@rollup/rollup-android-arm-eabi":
+      optional: true
+    "@rollup/rollup-android-arm64":
+      optional: true
+    "@rollup/rollup-darwin-arm64":
+      optional: true
+    "@rollup/rollup-darwin-x64":
+      optional: true
+    "@rollup/rollup-linux-arm-gnueabihf":
+      optional: true
+    "@rollup/rollup-linux-arm-musleabihf":
+      optional: true
+    "@rollup/rollup-linux-arm64-gnu":
+      optional: true
+    "@rollup/rollup-linux-arm64-musl":
+      optional: true
+    "@rollup/rollup-linux-powerpc64le-gnu":
+      optional: true
+    "@rollup/rollup-linux-riscv64-gnu":
+      optional: true
+    "@rollup/rollup-linux-s390x-gnu":
+      optional: true
+    "@rollup/rollup-linux-x64-gnu":
+      optional: true
+    "@rollup/rollup-linux-x64-musl":
+      optional: true
+    "@rollup/rollup-win32-arm64-msvc":
+      optional: true
+    "@rollup/rollup-win32-ia32-msvc":
+      optional: true
+    "@rollup/rollup-win32-x64-msvc":
+      optional: true
+    fsevents:
+      optional: true
+  bin:
+    rollup: dist/bin/rollup
+  checksum: 4fa6644e5c7fc4a34f654ea7e209be6c2c5897ed9dd43e7135230137204df748a795c7553804130f6c41da0b71e83f8c35a4a7881d385a77996adee50b609a6e
   languageName: node
   linkType: hard
 
@@ -6753,6 +6897,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"source-map-js@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "source-map-js@npm:1.2.0"
+  checksum: 7e5f896ac10a3a50fe2898e5009c58ff0dc102dcb056ed27a354623a0ece8954d4b2649e1a1b2b52ef2e161d26f8859c7710350930751640e71e374fe2d321a4
+  languageName: node
+  linkType: hard
+
 "ssri@npm:^10.0.0":
   version: 10.0.5
   resolution: "ssri@npm:10.0.5"
@@ -6939,12 +7090,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"strip-literal@npm:^1.3.0":
-  version: 1.3.0
-  resolution: "strip-literal@npm:1.3.0"
+"strip-literal@npm:^2.0.0":
+  version: 2.1.0
+  resolution: "strip-literal@npm:2.1.0"
   dependencies:
-    acorn: "npm:^8.10.0"
-  checksum: 3c0c9ee41eb346e827eede61ef288457f53df30e3e6ff8b94fa81b636933b0c13ca4ea5c97d00a10d72d04be326da99ac819f8769f0c6407ba8177c98344a916
+    js-tokens: "npm:^9.0.0"
+  checksum: bc8b8c8346125ae3c20fcdaf12e10a498ff85baf6f69597b4ab2b5fbf2e58cfd2827f1a44f83606b852da99a5f6c8279770046ddea974c510c17c98934c9cc24
   languageName: node
   linkType: hard
 
@@ -7077,10 +7228,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tinypool@npm:^0.8.2":
-  version: 0.8.2
-  resolution: "tinypool@npm:0.8.2"
-  checksum: 8998626614172fc37c394e9a14e701dc437727fc6525488a4d4fd42044a4b2b59d6f076d750cbf5c699f79c58dd4e40599ab09e2f1ae0df4b23516b98c9c3055
+"tinypool@npm:^0.8.3":
+  version: 0.8.4
+  resolution: "tinypool@npm:0.8.4"
+  checksum: 779c790adcb0316a45359652f4b025958c1dff5a82460fe49f553c864309b12ad732c8288be52f852973bc76317f5e7b3598878aee0beb8a33322c0e72c4a66c
   languageName: node
   linkType: hard
 
@@ -7416,9 +7567,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite-node@npm:1.2.2":
-  version: 1.2.2
-  resolution: "vite-node@npm:1.2.2"
+"vite-node@npm:1.5.3":
+  version: 1.5.3
+  resolution: "vite-node@npm:1.5.3"
   dependencies:
     cac: "npm:^6.7.14"
     debug: "npm:^4.3.4"
@@ -7427,11 +7578,11 @@ __metadata:
     vite: "npm:^5.0.0"
   bin:
     vite-node: vite-node.mjs
-  checksum: 39a5b9d9c806a012aab208eee0f59e4e12446ec19a4cf149a6459e7ff86491c289e189fda4f55a63b7e37d713f5edbda0e9efed95af4f7ebefa6d39eee093c0b
+  checksum: beddb9cc4377fc58726ea08206d20751b0cf1efd1b632b9048ff73184bf4c7b9e586490b48ddeb9c4be3ddea9dbfa9d32125f060a78c6d705be670bbe03ecc95
   languageName: node
   linkType: hard
 
-"vite@npm:^5.0.0, vite@npm:^5.0.12":
+"vite@npm:^5.0.0":
   version: 5.0.12
   resolution: "vite@npm:5.0.12"
   dependencies:
@@ -7471,17 +7622,56 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vitest@npm:^1.2.2":
-  version: 1.2.2
-  resolution: "vitest@npm:1.2.2"
+"vite@npm:^5.2.11":
+  version: 5.2.11
+  resolution: "vite@npm:5.2.11"
   dependencies:
-    "@vitest/expect": "npm:1.2.2"
-    "@vitest/runner": "npm:1.2.2"
-    "@vitest/snapshot": "npm:1.2.2"
-    "@vitest/spy": "npm:1.2.2"
-    "@vitest/utils": "npm:1.2.2"
+    esbuild: "npm:^0.20.1"
+    fsevents: "npm:~2.3.3"
+    postcss: "npm:^8.4.38"
+    rollup: "npm:^4.13.0"
+  peerDependencies:
+    "@types/node": ^18.0.0 || >=20.0.0
+    less: "*"
+    lightningcss: ^1.21.0
+    sass: "*"
+    stylus: "*"
+    sugarss: "*"
+    terser: ^5.4.0
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  peerDependenciesMeta:
+    "@types/node":
+      optional: true
+    less:
+      optional: true
+    lightningcss:
+      optional: true
+    sass:
+      optional: true
+    stylus:
+      optional: true
+    sugarss:
+      optional: true
+    terser:
+      optional: true
+  bin:
+    vite: bin/vite.js
+  checksum: 664b8d68e4f5152ae16bd2041af1bbaf11c43630ac461835bc31ff7d019913b33e465386e09f66dc1037d7aeefbb06939e0173787c063319bc2bd30c3b9ad8e4
+  languageName: node
+  linkType: hard
+
+"vitest@npm:^1.5.3":
+  version: 1.5.3
+  resolution: "vitest@npm:1.5.3"
+  dependencies:
+    "@vitest/expect": "npm:1.5.3"
+    "@vitest/runner": "npm:1.5.3"
+    "@vitest/snapshot": "npm:1.5.3"
+    "@vitest/spy": "npm:1.5.3"
+    "@vitest/utils": "npm:1.5.3"
     acorn-walk: "npm:^8.3.2"
-    cac: "npm:^6.7.14"
     chai: "npm:^4.3.10"
     debug: "npm:^4.3.4"
     execa: "npm:^8.0.1"
@@ -7490,17 +7680,17 @@ __metadata:
     pathe: "npm:^1.1.1"
     picocolors: "npm:^1.0.0"
     std-env: "npm:^3.5.0"
-    strip-literal: "npm:^1.3.0"
+    strip-literal: "npm:^2.0.0"
     tinybench: "npm:^2.5.1"
-    tinypool: "npm:^0.8.2"
+    tinypool: "npm:^0.8.3"
     vite: "npm:^5.0.0"
-    vite-node: "npm:1.2.2"
+    vite-node: "npm:1.5.3"
     why-is-node-running: "npm:^2.2.2"
   peerDependencies:
     "@edge-runtime/vm": "*"
     "@types/node": ^18.0.0 || >=20.0.0
-    "@vitest/browser": ^1.0.0
-    "@vitest/ui": ^1.0.0
+    "@vitest/browser": 1.5.3
+    "@vitest/ui": 1.5.3
     happy-dom: "*"
     jsdom: "*"
   peerDependenciesMeta:
@@ -7518,7 +7708,7 @@ __metadata:
       optional: true
   bin:
     vitest: vitest.mjs
-  checksum: 085cb62146191b32dc98fac1a5b0de6d1c63c44cc1e7946a7d38309dd4135539432ec27b4bfad38ce79736688a0ce20d9b93f58de4ce4a41677cb3c5ca6ad980
+  checksum: 2bce3a46a17b6e6915bdbdf60d25724b996c95a9e2c43cea483a6b5af527cd75030ec5215723fee494ba09608bf6339793511863dc0af1b3aaeea9eb3fda24e3
   languageName: node
   linkType: hard
 
