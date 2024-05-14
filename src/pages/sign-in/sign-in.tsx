@@ -12,11 +12,8 @@ export default function SignIn() {
 
     useEffect(() => {
         if (!data) return;
-        // @TODO: Parse token and user from data
-        const token = (data as { token: string }).token;
-        const user = (data as { user: Record<string, string> }).user;
         // Authenticate user
-        dispatch(authenticate({ token, user }));
+        dispatch(authenticate(data));
     }, [data, dispatch]);
 
     const handleOnSubmit = async (data: Record<string, string>) => {
@@ -28,7 +25,7 @@ export default function SignIn() {
             <div className="bg-white p-8 rounded-lg shadow-lg space-y-8">
                 <img src={Logo} alt="Logo" className="object-contain w-24 mx-auto" />
                 {/* Form */}
-                <section>
+                <section className="space-y-2">
                     <h1 className="text-2xl">Sign in</h1>
                     <SignInForm onSubmit={handleOnSubmit} />
                     {/* Error message */}

@@ -6,13 +6,13 @@ export const signInApi = createApi({
     reducerPath: "signInApi",
     baseQuery,
     endpoints: (builder) => ({
-        signIn: builder.mutation<unknown, Record<string, string>>({
+        signIn: builder.mutation<AuthData, Record<string, string>>({
             query: (body) => ({
                 url: "/sign-in",
                 method: "POST",
                 body,
             }),
-            transformResponse: (response: { data: unknown }) => response?.data,
+            transformResponse: (response: { data: AuthData }) => response?.data,
             transformErrorResponse,
         }),
         refreshToken: builder.mutation<AuthData, { refreshToken: string }>({
