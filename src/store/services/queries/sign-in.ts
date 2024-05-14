@@ -1,5 +1,6 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
 import { baseQuery, transformErrorResponse } from "@store/services";
+import { AuthData } from "@models/auth.ts";
 
 export const signInApi = createApi({
     reducerPath: "signInApi",
@@ -14,7 +15,19 @@ export const signInApi = createApi({
             transformResponse: (response: { data: unknown }) => response?.data,
             transformErrorResponse,
         }),
+        refreshToken: builder.mutation<AuthData, { refreshToken: string }>({
+            query: (body) => ({
+                url: "/refresh-token",
+                method: "POST",
+                headers: {
+                    // Override authorization header with the refresh token
+                    authorization: `Bearer ${body.refreshToken}`,
+                },
+            }),
+            transformResponse: (response: { data: AuthData }) => response?.data,
+            transformErrorResponse,
+        }),
     }),
 });
 
-export const { useSignInMutation } = signInApi;
+export const { useSignInMutation, useRefreshTokenMutation } = signInApi;

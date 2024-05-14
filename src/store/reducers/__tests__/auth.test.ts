@@ -6,37 +6,36 @@ describe("Reducer: Auth", () => {
             data: {
                 isAuth: false,
                 token: null,
+                refreshToken: null,
                 user: null,
             },
         });
     });
 
     it("sets authentication data", () => {
-        expect(Auth(undefined, authenticate({ token: "JWT Token", user: { username: "Lorem ipsum" } }))).toEqual({
+        const payload = { token: "JWT Token", refreshToken: "Refresh JWT Token", user: { username: "Lorem ipsum" } };
+        expect(Auth(undefined, authenticate(payload))).toEqual({
             data: {
                 isAuth: true,
                 token: "JWT Token",
+                refreshToken: "Refresh JWT Token",
                 user: { username: "Lorem ipsum" },
             },
         });
     });
 
     it("expires authentication data", () => {
-        expect(
-            Auth(
-                {
-                    data: {
-                        isAuth: true,
-                        token: "JWT Token",
-                        user: { username: "Lorem ipsum" },
-                    },
-                },
-                expire(),
-            ),
-        ).toEqual({
+        const data = {
+            isAuth: true,
+            token: "JWT Token",
+            refreshToken: "Refresh JWT Token",
+            user: { username: "Lorem ipsum" },
+        };
+        expect(Auth({ data }, expire())).toEqual({
             data: {
                 isAuth: false,
                 token: null,
+                refreshToken: null,
                 user: null,
             },
         });
