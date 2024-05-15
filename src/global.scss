@@ -25,6 +25,26 @@
 @layer components {
   .page {
     @apply w-full h-full;
+
+    .page-header {
+      @apply flex flex-row flex-wrap items-end justify-between;
+
+      .title {
+        @apply text-xl text-primary font-bold;
+      }
+
+      .subtitle {
+        @apply text-sm text-gray-500;
+      }
+    }
+
+    .vertical-layout {
+      @apply flex flex-col h-full;
+
+      .page-content {
+        @apply grow overflow-hidden;
+      }
+    }
   }
 }
 
