@@ -37,6 +37,7 @@ describe("When session is not authenticated", () => {
                     data: {
                         isAuth: false,
                         token: null,
+                        refreshToken: null,
                         user: null,
                     },
                 },
@@ -78,6 +79,7 @@ describe("When session is authenticated", () => {
                     data: {
                         isAuth: true,
                         token: null,
+                        refreshToken: null,
                         user: null,
                     },
                 },
@@ -134,6 +136,7 @@ describe("When session has a previous page to redirect to", () => {
                     data: {
                         isAuth: true,
                         token: null,
+                        refreshToken: null,
                         user: null,
                     },
                 },

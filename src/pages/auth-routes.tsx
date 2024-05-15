@@ -92,7 +92,7 @@ export default function AuthRoutes() {
                 activeKey={location.pathname}
                 items={[
                     { code: "/", text: "Home", iconCss: "fa-regular fa-home" },
-                    { code: "/admin", text: "Admin", iconCss: "fa-regular fa-cog" },
+                    { code: "/admin-example", text: "Admin (example)", iconCss: "fa-regular fa-cog" },
                     { code: "sign-out", text: "Sign out", iconCss: "fa-regular fa-arrow-right-from-bracket" },
                 ]}
                 onItemSelect={handleOnSidebarItemSelect}

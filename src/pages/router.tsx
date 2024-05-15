@@ -1,8 +1,9 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from "./home";
+import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
 import AuthRoutes from "@pages/auth-routes.tsx";
 import GuestOnlyRoutes from "@pages/guest-only-routes.tsx";
-import Admin from "@pages/admin";
+
+// Pages
+import Home from "./home";
 
 const router = createBrowserRouter([
     {
@@ -13,8 +14,11 @@ const router = createBrowserRouter([
                 element: <Home />,
             },
             {
-                path: "/admin",
-                element: <Admin />,
+                path: "/admin-example",
+                lazy: async () => {
+                    const AdminExample = (await import("@pages/admin-example")).default;
+                    return { element: <AdminExample /> };
+                },
             },
         ],
     },
@@ -30,6 +34,8 @@ const router = createBrowserRouter([
             },
         ],
     },
+    // Redirect on 404
+    { path: "*", element: <Navigate to="/" /> },
 ]);
 
 export default function Router() {
