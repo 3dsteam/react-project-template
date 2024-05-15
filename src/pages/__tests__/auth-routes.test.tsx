@@ -1,19 +1,27 @@
 import * as ReactRouterDom from "react-router-dom";
 import { renderWithProviders } from "@tests/store.tsx";
-import { act, screen } from "@testing-library/react";
+import { act, fireEvent, screen } from "@testing-library/react";
 import { generateJWT } from "@utils/__tests__/jwt.test.ts";
 import AuthRoutes from "@pages/auth-routes.tsx";
 import * as authStore from "@store/reducers/auth.ts";
 import { server } from "@tests/mocks.ts";
 import { http, HttpResponse } from "msw";
+import SidebarMenu from "@components/sidebar-menu";
+import { beforeEach, describe, expect } from "vitest";
 
+const navigate = vi.fn();
+
+// Mock components
+vi.mock("@components/sidebar-menu");
 vi.mock("react-router-dom", async () => ({
     ...(await vi.importActual("react-router-dom")),
+    useNavigate: () => navigate,
 }));
 
 beforeAll(() => {
     // Mock Navigate component
     vi.spyOn(ReactRouterDom, "Navigate");
+    vi.spyOn(authStore, "expire");
     vi.spyOn(authStore, "authenticate");
 });
 
@@ -56,6 +64,47 @@ describe("When session is authenticated", () => {
 
     it("renders page", () => {
         expect(screen.getByTestId("home")).toBeInTheDocument();
+    });
+
+    it("renders the sidebar menu", () => {
+        expect(vi.mocked(SidebarMenu)).toHaveBeenCalledWith(
+            expect.objectContaining({ isOpen: true }),
+            expect.any(Object),
+        );
+    });
+
+    describe("When user clicks on menu button", () => {
+        beforeEach(async () => {
+            await act(() => fireEvent.click(screen.getByTestId("menu-button")));
+        });
+
+        it("toggles sidebar menu", () => {
+            expect(vi.mocked(SidebarMenu)).toHaveBeenCalledWith(
+                expect.objectContaining({ isOpen: false }),
+                expect.any(Object),
+            );
+        });
+    });
+
+    describe("When sidebar menu callbacks with other keys", () => {
+        beforeEach(() => {
+            act(() => vi.mocked(SidebarMenu).mock.calls[0][0].onItemSelect("/home"));
+        });
+
+        it("navigates to the selected page", () => {
+            expect(vi.mocked(navigate)).toHaveBeenCalledWith("/home");
+        });
+    });
+
+    // Note: this test expires the session!
+    describe("When sidebar menu callbacks with sign-out key", () => {
+        beforeEach(() => {
+            act(() => vi.mocked(SidebarMenu).mock.calls[0][0].onItemSelect("sign-out"));
+        });
+
+        it("calls handleExpire", () => {
+            expect(vi.mocked(authStore.expire)).toHaveBeenCalled();
+        });
     });
 });
 
