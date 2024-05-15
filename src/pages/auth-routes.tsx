@@ -100,7 +100,7 @@ export default function AuthRoutes() {
                 onClose={() => setShowSidebar(false)}
             />
             {/* Container */}
-            <section className="vertical-container">
+            <section className="vertical-layout">
                 {/* Header */}
                 <AppBarComponent colorMode="Light">
                     <ButtonComponent
