@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { IAuthState } from "@models/auth.ts";
+import { AuthData, IAuthState } from "@models/auth.ts";
 import { getLocalStorage, removeLocalStorage, setLocalStorage } from "@utils/storage.ts";
 
 interface IState {
@@ -7,7 +7,7 @@ interface IState {
 }
 
 interface IAction {
-    payload: Pick<IAuthState, "token"> & Pick<IAuthState, "user">;
+    payload: AuthData;
 }
 
 // Load initial state from localStorage
@@ -16,6 +16,7 @@ const initialState: IState = {
     data: local ?? {
         isAuth: false,
         token: null,
+        refreshToken: null,
         user: null,
     },
 };
@@ -31,7 +32,7 @@ const slice = createSlice({
         },
         expire: (state) => {
             removeLocalStorage("authentication");
-            state.data = { isAuth: false, token: null, user: null };
+            state.data = { isAuth: false, token: null, refreshToken: null, user: null };
         },
     },
 });

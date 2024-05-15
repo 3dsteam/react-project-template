@@ -1,5 +1,5 @@
 import { setupServer } from "msw/node";
-import { handlers } from "@msw/handlers.ts";
+import handlers from "@mocks/handlers.ts";
 
 const server = setupServer(...handlers);
 

@@ -1,5 +1,9 @@
-export interface IAuthState {
-    isAuth: boolean;
+export interface AuthData {
     token: string | null;
-    user: Record<string, unknown> | null;
+    refreshToken: string | null;
+    user: Record<string, string> | null;
+}
+
+export interface IAuthState extends AuthData {
+    isAuth: boolean;
 }

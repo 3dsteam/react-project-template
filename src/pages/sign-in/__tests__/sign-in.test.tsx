@@ -1,4 +1,4 @@
-import { renderWithProviders } from "@store/test-utils.tsx";
+import { renderWithProviders } from "@tests/store.tsx";
 import { act, screen, waitFor } from "@testing-library/react";
 import SignIn from "../sign-in";
 import SignInForm from "@components/sign-in-form";

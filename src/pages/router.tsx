@@ -1,15 +1,24 @@
-import { createHashRouter, RouterProvider } from "react-router-dom";
-import Home from "./home";
+import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
 import AuthRoutes from "@pages/auth-routes.tsx";
 import GuestOnlyRoutes from "@pages/guest-only-routes.tsx";
 
-const router = createHashRouter([
+// Pages
+import Home from "./home";
+
+const router = createBrowserRouter([
     {
         element: <AuthRoutes />,
         children: [
             {
                 path: "/",
                 element: <Home />,
+            },
+            {
+                path: "/admin-example",
+                lazy: async () => {
+                    const AdminExample = (await import("@pages/admin-example")).default;
+                    return { element: <AdminExample /> };
+                },
             },
         ],
     },
@@ -25,6 +34,8 @@ const router = createHashRouter([
             },
         ],
     },
+    // Redirect on 404
+    { path: "*", element: <Navigate to="/" /> },
 ]);
 
 export default function Router() {
