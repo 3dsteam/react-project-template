@@ -1,15 +1,13 @@
+import { afterEach } from "vitest";
 import "@testing-library/jest-dom/vitest";
 import "./mocks.ts";
+import "./i18n.ts";
 
-// i18next
-vi.mock("react-i18next", () => ({
-    // this mock makes sure any components using the translation hook can use it without a warning being shown
-    useTranslation: () => {
-        return {
-            t: (str: string) => str,
-            i18n: {
-                changeLanguage: () => Promise.resolve(),
-            },
-        };
-    },
+afterEach(() => {
+    vi.clearAllMocks();
+});
+
+// Mock window.computeStyle
+window.getComputedStyle = vi.fn().mockImplementation(() => ({
+    getPropertyValue: vi.fn().mockReturnValue("auto"),
 }));
