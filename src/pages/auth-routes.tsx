@@ -29,7 +29,7 @@ export default function AuthRoutes() {
             if (!auth.refreshToken) return;
             // Call refresh token
             const res = await dispatchRefreshToken({ refreshToken: auth.refreshToken });
-            if ("data" in res) {
+            if (res.data) {
                 // Update auth data
                 dispatch(authenticate(res.data));
             } else if ("error" in res) {

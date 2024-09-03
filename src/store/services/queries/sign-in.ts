@@ -12,7 +12,7 @@ export const signInApi = createApi({
                 method: "POST",
                 body,
             }),
-            transformResponse: (response: { data: AuthData }) => response?.data,
+            transformResponse: (response: { data: AuthData }) => response.data,
             transformErrorResponse,
         }),
         refreshToken: builder.mutation<AuthData, { refreshToken: string }>({
@@ -24,7 +24,7 @@ export const signInApi = createApi({
                     authorization: `Bearer ${body.refreshToken}`,
                 },
             }),
-            transformResponse: (response: { data: AuthData }) => response?.data,
+            transformResponse: (response: { data: AuthData }) => response.data,
             transformErrorResponse,
         }),
     }),
