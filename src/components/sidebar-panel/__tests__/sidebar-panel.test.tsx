@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect } from "vitest";
 import { renderWithProviders } from "@tests/store.tsx";
-import SidebarPanel from "@components/sidebar-panel/sidebar-panel.tsx";
+import SidebarPanel from "@components/sidebar-panel";
 import { screen } from "@testing-library/react";
 
 describe("Main", () => {

@@ -1,4 +1,4 @@
-import SidebarPanel from "@components/sidebar-panel/sidebar-panel.tsx";
+import SidebarPanel from "@components/sidebar-panel";
 import { useRef, useState } from "react";
 import { Edit, GridComponent, Inject, Page } from "@syncfusion/ej2-react-grids";
 import { AppBarComponent } from "@syncfusion/ej2-react-navigations";

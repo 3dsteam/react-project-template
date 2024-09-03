@@ -10,12 +10,12 @@ interface ISidebarPanelProps extends PropsWithChildren {
     onClose?: () => void;
 }
 
-export default function SidebarPanel(props: ISidebarPanelProps) {
+export const SidebarPanel = (props: ISidebarPanelProps) => {
     return (
         <SidebarComponent
             data-testid="sidebar-panel"
             target={props.target}
-            width={props?.width ?? 280}
+            width={props?.width ?? 320}
             position={props.position ?? "Right"}
             isOpen={props.isOpen}
             type="Push"
@@ -26,4 +26,4 @@ export default function SidebarPanel(props: ISidebarPanelProps) {
             {props.children}
         </SidebarComponent>
     );
-}
+};
