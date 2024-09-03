@@ -20,7 +20,7 @@
         ]
     },
     "dependencies": {
-        "@3dsteam/react-dynamic-form": "^1.0.0-rc.14",
+        "@3dsteam/react-dynamic-form": "2.0.0-rc.0",
         "@fortawesome/fontawesome-pro": "^6.6.0",
         "@reduxjs/toolkit": "^2.2.7",
         "@syncfusion/ej2-react-buttons": "^26.2.10",
@@ -39,7 +39,6 @@
     "devDependencies": {
         "@eslint/compat": "^1.1.1",
         "@eslint/js": "^9.9.1",
-        "@ionic/react": "^8.2.7",
         "@mswjs/http-middleware": "^0.10.1",
         "@testing-library/dom": "^10.4.0",
         "@testing-library/jest-dom": "^6.5.0",

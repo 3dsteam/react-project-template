@@ -5,6 +5,7 @@ import react from "@vitejs/plugin-react-swc";
 export default defineConfig({
     plugins: [react()],
     resolve: {
+        mainFields: ["module", "main"],
         alias: {
             "@assets": "/src/assets",
             "@pages": "/src/pages",

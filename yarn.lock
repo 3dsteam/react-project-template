@@ -5,9 +5,9 @@ __metadata:
   version: 8
   cacheKey: 10c0
 
-"@3dsteam/react-dynamic-form@npm:^1.0.0-rc.14":
-  version: 1.0.0-rc.14
-  resolution: "@3dsteam/react-dynamic-form@npm:1.0.0-rc.14::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%403dsteam%2Freact-dynamic-form%2F1.0.0-rc.14%2Fc086b953f3a6e37bdf3a804c663c67f33a2ac58f"
+"@3dsteam/react-dynamic-form@npm:2.0.0-rc.0":
+  version: 2.0.0-rc.0
+  resolution: "@3dsteam/react-dynamic-form@npm:2.0.0-rc.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%403dsteam%2Freact-dynamic-form%2F2.0.0-rc.0%2Ffcf04e180beae792dd7970d225045e3ea87350c1"
   dependencies:
     "@3dsteam/react-form-validator": "npm:1.1.0-rc.3"
     "@syncfusion/ej2-react-buttons": "npm:^26.1.35"
@@ -17,10 +17,9 @@ __metadata:
     "@syncfusion/ej2-react-splitbuttons": "npm:^26.1.35"
     lodash: "npm:^4.17.21"
   peerDependencies:
-    "@ionic/react": ^8.2.2
     react: ">=18"
     react-dom: ">=18"
-  checksum: 10c0/2c1e906a91818d2edcbd17345b821e1db92a3a6350432187ef7510474f398bde54a2e925ccfc98c1ff8dbcfcf0a34a3e4e707e49f4765077002502ff6349c168
+  checksum: 10c0/ad2b43982a11ee5a7e073651bd33017f2a9775aeda4fb0ec8f2943a597f2aba899177cac17ca9b34244a10ef3f7d88459b6602e7aa2751ace7da74ff29dfe2a7
   languageName: node
   linkType: hard
 
@@ -762,31 +761,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ionic/core@npm:8.2.7":
-  version: 8.2.7
-  resolution: "@ionic/core@npm:8.2.7"
-  dependencies:
-    "@stencil/core": "npm:^4.19.2"
-    ionicons: "npm:^7.2.2"
-    tslib: "npm:^2.1.0"
-  checksum: 10c0/a7b6f6930a70c28a12fc7d3d1f5e971b89f2d064dda83f17f9af4017742e36e93797491acd13a7065ddc268b21bab5881a05357b9a4224011bb6f7472ddab37a
-  languageName: node
-  linkType: hard
-
-"@ionic/react@npm:^8.2.7":
-  version: 8.2.7
-  resolution: "@ionic/react@npm:8.2.7"
-  dependencies:
-    "@ionic/core": "npm:8.2.7"
-    ionicons: "npm:^7.0.0"
-    tslib: "npm:*"
-  peerDependencies:
-    react: ">=16.8.6"
-    react-dom: ">=16.8.6"
-  checksum: 10c0/b180abe1aadb8b3f8c7877a6af2ca8056ba73d102f9bdeab497e266ca1594e00049b1286868a99c8307ece23feccc445995a6faa619c604079b79990aeae407a
-  languageName: node
-  linkType: hard
-
 "@isaacs/cliui@npm:^8.0.2":
   version: 8.0.2
   resolution: "@isaacs/cliui@npm:8.0.2"
@@ -1198,15 +1172,6 @@ __metadata:
   version: 4.9.6
   resolution: "@rollup/rollup-win32-x64-msvc@npm:4.9.6"
   conditions: os=win32 & cpu=x64
-  languageName: node
-  linkType: hard
-
-"@stencil/core@npm:^4.0.3, @stencil/core@npm:^4.19.2":
-  version: 4.21.0
-  resolution: "@stencil/core@npm:4.21.0"
-  bin:
-    stencil: bin/stencil
-  checksum: 10c0/8d8d8158980cc43226fdcbdbd82756508962ccda8cfb0d73cea579a6ffab6c0c76a041d2f0659620a936559426936f3e717cd006ec59d8adcf3ec647361af2d6
   languageName: node
   linkType: hard
 
@@ -4625,15 +4590,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ionicons@npm:^7.0.0, ionicons@npm:^7.2.2":
-  version: 7.4.0
-  resolution: "ionicons@npm:7.4.0"
-  dependencies:
-    "@stencil/core": "npm:^4.0.3"
-  checksum: 10c0/0f0e9b5a390514e864f098fbc6b69823fa2cde1758d0e43ca6a9a3b19d3a15b595c913e5a4445945bbbf779454c710fd101edb00f5f1a658dafd9073cc10b0b6
-  languageName: node
-  linkType: hard
-
 "ip@npm:^2.0.0":
   version: 2.0.0
   resolution: "ip@npm:2.0.0"
@@ -6378,11 +6334,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "react-project-template@workspace:."
   dependencies:
-    "@3dsteam/react-dynamic-form": "npm:^1.0.0-rc.14"
+    "@3dsteam/react-dynamic-form": "npm:2.0.0-rc.0"
     "@eslint/compat": "npm:^1.1.1"
     "@eslint/js": "npm:^9.9.1"
     "@fortawesome/fontawesome-pro": "npm:^6.6.0"
-    "@ionic/react": "npm:^8.2.7"
     "@mswjs/http-middleware": "npm:^0.10.1"
     "@reduxjs/toolkit": "npm:^2.2.7"
     "@syncfusion/ej2-react-buttons": "npm:^26.2.10"
@@ -7537,13 +7492,6 @@ __metadata:
   version: 0.1.13
   resolution: "ts-interface-checker@npm:0.1.13"
   checksum: 10c0/232509f1b84192d07b81d1e9b9677088e590ac1303436da1e92b296e9be8e31ea042e3e1fd3d29b1742ad2c959e95afe30f63117b8f1bc3a3850070a5142fea7
-  languageName: node
-  linkType: hard
-
-"tslib@npm:*, tslib@npm:^2.1.0":
-  version: 2.7.0
-  resolution: "tslib@npm:2.7.0"
-  checksum: 10c0/469e1d5bf1af585742128827000711efa61010b699cb040ab1800bcd3ccdd37f63ec30642c9e07c4439c1db6e46345582614275daca3e0f4abae29b0083f04a6
   languageName: node
   linkType: hard
 
