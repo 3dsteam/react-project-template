@@ -1,3 +1,9 @@
 {
-    "Welcome to React": "Welcome to React and react-i18next"
+  "SignIn": {
+    "Sign in": "Sign in",
+    "Welcome to {{name}}": "Welcome to {{name}}"
+  },
+  "Validation": {
+    "This field is required": "This field is required"
+  }
 }

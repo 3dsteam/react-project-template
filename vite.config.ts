@@ -1,9 +1,9 @@
-/// <reference types="vitest" />
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
+import { TanStackRouterVite } from "@tanstack/router-plugin/vite";
 
 export default defineConfig({
-    plugins: [react()],
+    plugins: [TanStackRouterVite(), react()],
     resolve: {
         mainFields: ["module", "main"],
         alias: {
@@ -13,7 +13,7 @@ export default defineConfig({
             "@hooks": "/src/hooks",
             "@mocks": "/mocks",
             "@models": "/src/models",
-            "@store": "/src/store",
+            "@store": "/src/redux-store",
             "@tests": "/tests",
             "@utils": "/src/utils",
         },
@@ -21,14 +21,9 @@ export default defineConfig({
     css: {
         preprocessorOptions: {
             scss: {
+                api: "legacy",
                 includePaths: ["node_modules/@syncfusion"],
             },
         },
-    },
-    test: {
-        // ...
-        globals: true,
-        environment: "jsdom",
-        setupFiles: ["./tests/setup.ts"],
     },
 });

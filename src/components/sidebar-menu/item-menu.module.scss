@@ -1,0 +1,14 @@
+.Item {
+  @apply flex items-center text-base p-1 hover:bg-violet-400 hover:text-white hover:rounded cursor-pointer;
+
+  &:global(.active) {
+    @apply bg-violet-400 text-white rounded;
+  }
+}
+
+// Hide when sidebar is docked
+:global(.e-sidebar.e-close) {
+  .Content {
+    @apply hidden;
+  }
+}
