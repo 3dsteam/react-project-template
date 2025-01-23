@@ -39,10 +39,8 @@ function RouteComponent() {
     useEffect(() => {
         if (!isSuccess || !data) return;
         // Set session
-        authenticate({
-            ...data,
-            user: { ...data.user, nominative: (data.user.nominative as string) ?? "Unknown" },
-        });
+        console.log("[AUTH] User signed in");
+        authenticate({ ...data, user: { ...data.user, nominative: (data.user.nominative as string) ?? "Unknown" } });
         // Invalidate the router
         void router.invalidate();
     }, [data]);
@@ -60,14 +58,14 @@ function RouteComponent() {
                             name: "username",
                             placeholder: "Username",
                             validations: { required: true },
-                            props: { floatLabelType: "Always" },
+                            props: { floatLabelType: "Always", htmlAttributes: { autocomplete: "username" } },
                         },
                         {
                             name: "password",
                             type: EFieldType.PASSWORD,
                             placeholder: "Password",
                             validations: { required: true },
-                            props: { floatLabelType: "Always" },
+                            props: { floatLabelType: "Always", htmlAttributes: { autocomplete: "current-password" } },
                         },
                     ]}
                     onSubmit={handleSubmit}

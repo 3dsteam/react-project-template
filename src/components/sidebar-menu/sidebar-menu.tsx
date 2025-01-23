@@ -28,6 +28,7 @@ const SidebarMenu = (props: ISidebarMenuProps) => {
             cancelButton: {
                 text: t("Sign out"),
                 click: () => {
+                    console.log("[AUTH] User MANUALLY signed out");
                     signOut();
                     dialog.hide();
                 },

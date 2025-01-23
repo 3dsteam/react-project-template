@@ -4,6 +4,7 @@ import { postRefreshToken } from "../queries/post.refresh-token.ts";
 import { useEffect } from "react";
 import { getJwtExp } from "@utils/jwt.ts";
 import SidebarMenu from "@components/sidebar-menu/sidebar-menu.tsx";
+import { DialogUtility } from "@syncfusion/ej2-react-popups";
 
 export const Route = createFileRoute("/_auth")({
     component: RouteComponent,
@@ -14,20 +15,26 @@ export const Route = createFileRoute("/_auth")({
      */
     beforeLoad: async () => {
         if (!useAuthStore.getState().isAuth()) {
+            console.warn("[AUTH] beforeLoad - User is not authenticated");
             // Check for the refresh token
             const { refreshToken, expire } = useAuthStore.getState();
             if (refreshToken) {
                 // Refresh the token
                 try {
+                    console.log("[AUTH] Refreshing token");
                     await fireRefreshToken(refreshToken);
                     // Continue
                     return;
                 } catch {
                     // Expire session
+                    console.warn("[AUTH] Failed to refresh token. Expire session");
                     expire();
                 }
+            } else {
+                console.debug("[AUTH] No refresh token available");
             }
             // Throw a redirect to the sign-in page
+            console.warn("[AUTH] Redirecting to sign-in page");
             // eslint-disable-next-line @typescript-eslint/only-throw-error
             throw redirect({ to: "/sign-in" });
         }
@@ -59,11 +66,13 @@ function RouteComponent() {
 
         // Check for refresh token
         if (refreshToken) {
+            console.debug("Setup refresh token 5 min before expiration", { expiration });
             // Refresh token 5 minutes before expiration
             timeout = setTimeout(
                 () => {
                     try {
                         // Refresh token
+                        console.log("[AUTH] Refreshing token");
                         void fireRefreshToken(refreshToken);
                     } catch {
                         // Retry refresh on error
@@ -81,10 +90,16 @@ function RouteComponent() {
                 expiration - 1000 * 60 * 5,
             );
         } else {
+            console.debug("Setup session expiration alert 5 min before expiration", { expiration });
             // Fire expiration alert 5 minutes before expiration
             timeout = setTimeout(
                 () => {
-                    alert("Your session is about to expire. Save your work and re-authenticate your session.");
+                    console.log("[AUTH] Session expiration alert");
+                    DialogUtility.alert({
+                        title: "Session expiration",
+                        content: "Your session is about to expire. Save your work and re-authenticate your session.",
+                        okButton: { text: "Okay" },
+                    });
                 },
                 expiration - 1000 * 60 * 5,
             );
@@ -92,6 +107,7 @@ function RouteComponent() {
 
         // Expire session on timeout
         const expTimeout = setTimeout(() => {
+            console.warn("[AUTH] Session expired");
             useAuthStore.getState().expire();
         }, expiration);
 
@@ -102,6 +118,7 @@ function RouteComponent() {
             clearInterval(interval);
         };
     }, [token, refreshToken]);
+
     return (
         <div id="auth-layout">
             <SidebarMenu
