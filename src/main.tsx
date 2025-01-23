@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { ClientLoggerProvider } from "@3dsteam/react-client-logger";
 import browserWorker from "@mocks/browser.ts";
 import i18next from "i18next";
 import i18n from "./i18n.ts";
@@ -45,9 +46,11 @@ void (async () => {
     // Render App
     ReactDOM.createRoot(document.getElementById("root")!).render(
         <React.StrictMode>
-            <QueryClientProvider client={queryClient}>
-                <RouterProvider router={router} />
-            </QueryClientProvider>
+            <ClientLoggerProvider overrideConsole={!import.meta.env.DEV}>
+                <QueryClientProvider client={queryClient}>
+                    <RouterProvider router={router} />
+                </QueryClientProvider>
+            </ClientLoggerProvider>
         </React.StrictMode>,
     );
 })();
