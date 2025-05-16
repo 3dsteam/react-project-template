@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+/* Font Awesome */
+@import "@fortawesome/fontawesome-pro/css/fontawesome.min.css";
+@import "@fortawesome/fontawesome-pro/css/all.min.css";
+
+@layer components {
+    .page {
+        @apply w-full h-full;
+
+        .page-header {
+            @apply flex flex-row flex-wrap items-end justify-between;
+
+            .title {
+                @apply text-xl text-primary font-bold;
+            }
+
+            .subtitle {
+                @apply text-sm text-gray-500;
+            }
+        }
+
+        .vertical-layout {
+            @apply flex flex-col h-full;
+
+            .page-content {
+                @apply grow overflow-hidden;
+            }
+        }
+    }
+}
+
+@layer utilities {
+    .main-padding {
+        @apply p-4;
+    }
+
+    .main-space-x {
+        @apply space-x-4;
+    }
+
+    .main-space-y {
+        @apply space-y-4;
+    }
+}

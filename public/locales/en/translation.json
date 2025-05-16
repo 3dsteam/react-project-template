@@ -1,9 +1,5 @@
 {
-  "SignIn": {
-    "Sign in": "Sign in",
-    "Welcome to {{name}}": "Welcome to {{name}}"
-  },
-  "Validation": {
-    "This field is required": "This field is required"
-  }
+    "Error": {
+        "The server encountered an internal error": "The server encountered an internal error and was unable to complete your request"
+    }
 }

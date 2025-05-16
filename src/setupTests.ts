@@ -1,4 +1,6 @@
-export const changeLanguage = vi.fn();
+import { server } from "@mocks/node";
+import "@testing-library/jest-dom/vitest";
+import { changeLanguage } from "@tests/i18next";
 
 // Mock the i18next library
 vi.mock("react-i18next", () => ({
@@ -16,8 +18,23 @@ vi.mock("react-i18next", () => ({
             i18n: {
                 language: "en",
                 changeLanguage,
+                // Mock events
                 on: vi.fn(),
             },
         };
     },
 }));
+
+beforeAll(() => {
+    // Start mock server
+    server.listen();
+});
+
+afterEach(() => {
+    vi.clearAllMocks();
+});
+
+afterAll(() => {
+    // Close mock server
+    server.close();
+});

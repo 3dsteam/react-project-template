@@ -1,7 +1,7 @@
-import express from "express";
-import cors from "cors";
 import { createMiddleware } from "@mswjs/http-middleware";
-import handlers from "./handlers";
+import cors from "cors";
+import express from "express";
+import { handlers } from "./handlers";
 
 const app = express();
 const port = 3100;

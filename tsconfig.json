@@ -1,41 +1,38 @@
 {
+    "include": ["**/*.ts", "**/*.tsx", "eslint.config.js", "prettier.config.js", "vite.config.js"],
+
     "compilerOptions": {
-        "baseUrl": ".",
-        "paths": {
-            "@assets/*": ["src/assets/*"],
-            "@components/*": ["src/components/*"],
-            "@hooks/*": ["src/hooks/*"],
-            "@mocks/*": ["mocks/*"],
-            "@models/*": ["src/models/*"],
-            "@pages/*": ["src/pages/*"],
-            "@store/*": ["src/store/*"],
-            "@tests/*": ["tests/*"],
-            "@utils/*": ["src/utils/*"],
-        },
-        "target": "ES2020",
-        "useDefineForClassFields": true,
-        "lib": ["ES2020", "DOM", "DOM.Iterable"],
-        "module": "esnext",
-        "skipLibCheck": true,
+        "target": "ES2022",
+        "jsx": "react-jsx",
+        "module": "ESNext",
+        "lib": ["ES2022", "DOM", "DOM.Iterable"],
+        "types": ["vite/client", "vitest/globals", "@testing-library/jest-dom"],
+
         /* Bundler mode */
         "moduleResolution": "bundler",
         "allowImportingTsExtensions": true,
-        "resolveJsonModule": true,
-        "isolatedModules": true,
+        "verbatimModuleSyntax": true,
         "noEmit": true,
-        "jsx": "react-jsx",
+
         /* Linting */
+        "skipLibCheck": true,
         "strict": true,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "noFallthroughCasesInSwitch": true,
-        /* Types */
-        "types": ["vitest/globals", "@testing-library/jest-dom/vitest"],
-    },
-    "include": ["src", "tests", "mocks"],
-    "references": [
-        {
-            "path": "./tsconfig.node.json",
-        },
-    ],
+        "noUncheckedSideEffectImports": true,
+
+        /* Paths */
+        "baseUrl": ".",
+        "paths": {
+            "@assets/*": ["./src/assets/*"],
+            "@components/*": ["./src/components/*"],
+            "@integrations/*": ["./src/integrations/*"],
+            "@mocks/*": ["./src/mocks/*"],
+            "@models/*": ["./src/models/*"],
+            "@rest-api/*": ["./src/rest-api/*"],
+            "@store/*": ["./src/store/*"],
+            "@tests/*": ["./src/tests/*"]
+        }
+    }
 }

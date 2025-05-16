@@ -1,15 +1,15 @@
 import eslint from "@eslint/js";
-import tsEslint from "typescript-eslint";
-import reactEslint from "eslint-plugin-react";
 import prettierEslint from "eslint-config-prettier";
+import reactEslint from "eslint-plugin-react";
 import globals from "globals";
+import tsEslint from "typescript-eslint";
 
 export default tsEslint.config(
     { ignores: ["node_modules", "dist"] },
     eslint.configs.recommended,
     // TypeScript specific rules
     ...tsEslint.configs.recommendedTypeChecked,
-    // ...tsEslint.configs.stylisticTypeChecked,
+    ...tsEslint.configs.stylisticTypeChecked,
     {
         languageOptions: {
             parserOptions: {
