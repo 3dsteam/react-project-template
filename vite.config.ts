@@ -1,13 +1,19 @@
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react-swc";
+
+/// <reference types="vitest/config" />
 import { defineConfig } from "vite";
 
-import { TanStackRouterVite } from "@tanstack/router-plugin/vite";
+import { tanstackRouter } from "@tanstack/router-plugin/vite";
 import { resolve } from "node:path";
 
 export default defineConfig({
     plugins: [
-        TanStackRouterVite({ autoCodeSplitting: true, routeFileIgnorePattern: ".test.(ts|tsx)" }),
+        tanstackRouter({
+            target: "react",
+            autoCodeSplitting: true,
+            routeFileIgnorePattern: ".test.(ts|tsx)",
+        }),
         react(),
         tailwindcss(),
     ],
