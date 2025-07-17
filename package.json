@@ -20,7 +20,6 @@
         ]
     },
     "dependencies": {
-        "@3dsteam/react-client-logger": "^3.0.0-rc.0",
         "@3dsteam/react-dynamic-form": "2.1.0-rc.1",
         "@fortawesome/fontawesome-pro": "^6.7.2",
         "@tailwindcss/vite": "^4.1.7",

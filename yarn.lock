@@ -5,22 +5,6 @@ __metadata:
   version: 8
   cacheKey: 10c0
 
-"@3dsteam/react-client-logger@npm:^3.0.0-rc.0":
-  version: 3.0.0-rc.0
-  resolution: "@3dsteam/react-client-logger@npm:3.0.0-rc.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%403dsteam%2Freact-client-logger%2F3.0.0-rc.0%2F8271214848f2ac8f65cd29e7e3693001e01566be"
-  dependencies:
-    dexie: "npm:^4.0.10"
-    dexie-react-hooks: "npm:^1.1.7"
-    nanoid: "npm:^5.0.9"
-    uuid: "npm:^11.0.5"
-    zustand: "npm:^5.0.3"
-  peerDependencies:
-    react: ">=18"
-    react-dom: ">=18"
-  checksum: 10c0/8c6fe2dfe2b0083efcc5c61760354bb33ab7b20cbd58e5d00ea0092b567eafa473c67581f343a0a285384f2fb9dcfd2310007915ae0a56de693779c75cfe5241
-  languageName: node
-  linkType: hard
-
 "@3dsteam/react-dynamic-form@npm:2.1.0-rc.1":
   version: 2.1.0-rc.1
   resolution: "@3dsteam/react-dynamic-form@npm:2.1.0-rc.1::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%403dsteam%2Freact-dynamic-form%2F2.1.0-rc.1%2F19e3d7073971f6c91f83753df48607f2916dd9f7"
@@ -3994,24 +3978,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dexie-react-hooks@npm:^1.1.7":
-  version: 1.1.7
-  resolution: "dexie-react-hooks@npm:1.1.7"
-  peerDependencies:
-    "@types/react": ">=16"
-    dexie: ^3.2 || ^4.0.1-alpha
-    react: ">=16"
-  checksum: 10c0/3ff38e715a52bff9132b483963246ea5372a282d9257c8c2bf8891c522fa0d761d1e362bb352eb63386f49ea9a55c52e1bcc5cce2019deb1eceba40d8a88631d
-  languageName: node
-  linkType: hard
-
-"dexie@npm:^4.0.10":
-  version: 4.0.11
-  resolution: "dexie@npm:4.0.11"
-  checksum: 10c0/f8f18e17fe99fd3d4bd80a4ff76c0a543be128bb65a11b6b34297c6ab2d7426989567a8eac09b0de6b483bfb776cbbb32bebe3eedcd5c572ddda80224aac1fa1
-  languageName: node
-  linkType: hard
-
 "diff@npm:^7.0.0":
   version: 7.0.0
   resolution: "diff@npm:7.0.0"
@@ -7110,15 +7076,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nanoid@npm:^5.0.9":
-  version: 5.0.9
-  resolution: "nanoid@npm:5.0.9"
-  bin:
-    nanoid: bin/nanoid.js
-  checksum: 10c0/a2d9710525d4998a8a1610bbe6eb9a92c254ebab7c567c1ab429046fe7eed9c4df3508b59fb44c58ffdc98edb28dd6f953715c14b64ea0a3a2ce37420cdfeefd
-  languageName: node
-  linkType: hard
-
 "natural-compare@npm:^1.4.0":
   version: 1.4.0
   resolution: "natural-compare@npm:1.4.0"
@@ -7785,7 +7742,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "react-project-template@workspace:."
   dependencies:
-    "@3dsteam/react-client-logger": "npm:^3.0.0-rc.0"
     "@3dsteam/react-dynamic-form": "npm:2.1.0-rc.1"
     "@eslint/js": "npm:^9.26.0"
     "@fortawesome/fontawesome-pro": "npm:^6.7.2"
@@ -9278,15 +9234,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"uuid@npm:^11.0.5":
-  version: 11.0.5
-  resolution: "uuid@npm:11.0.5"
-  bin:
-    uuid: dist/esm/bin/uuid
-  checksum: 10c0/6f59f0c605e02c14515401084ca124b9cb462b4dcac866916a49862bcf831874508a308588c23a7718269226ad11a92da29b39d761ad2b86e736623e3a33b6e7
-  languageName: node
-  linkType: hard
-
 "vary@npm:^1, vary@npm:^1.1.2, vary@npm:~1.1.2":
   version: 1.1.2
   resolution: "vary@npm:1.1.2"
@@ -9763,27 +9710,6 @@ __metadata:
   version: 3.24.4
   resolution: "zod@npm:3.24.4"
   checksum: 10c0/ab3112f017562180a41a0f83d870b333677f7d6b77f106696c56894567051b91154714a088149d8387a4f50806a2520efcb666f108cd384a35c236a191186d91
-  languageName: node
-  linkType: hard
-
-"zustand@npm:^5.0.3":
-  version: 5.0.3
-  resolution: "zustand@npm:5.0.3"
-  peerDependencies:
-    "@types/react": ">=18.0.0"
-    immer: ">=9.0.6"
-    react: ">=18.0.0"
-    use-sync-external-store: ">=1.2.0"
-  peerDependenciesMeta:
-    "@types/react":
-      optional: true
-    immer:
-      optional: true
-    react:
-      optional: true
-    use-sync-external-store:
-      optional: true
-  checksum: 10c0/dad96c6c123fda088c583d5df6692e9245cd207583078dc15f93d255a67b0f346bad4535545c98852ecde93d254812a0c799579dfde2ab595016b99fbe20e4d5
   languageName: node
   linkType: hard
 
