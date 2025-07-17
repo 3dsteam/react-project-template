@@ -11,7 +11,9 @@ export const queryClient = TanstackQuery.getContext().queryClient;
 export const router = createRouter({
     routeTree,
     context: { ...TanstackQuery.getContext() },
+    // Avoid cache
     defaultPreloadStaleTime: 0,
+    defaultGcTime: 0,
 });
 
 export const renderWithRouterProvider = () => {
