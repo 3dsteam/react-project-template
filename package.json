@@ -7,10 +7,10 @@
     "scripts": {
         "prepare": "husky",
         "dev": "vite",
-        "server:mock": "tsx mocks/server.ts",
         "test": "vitest run",
         "test:watch": "vitest",
         "build": "tsc && vite build",
+        "express:mock": "tsx src/mocks/server.ts",
         "preview": "vite preview"
     },
     "lint-staged": {
