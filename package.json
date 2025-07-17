@@ -25,6 +25,7 @@
         "@tailwindcss/vite": "^4.1.11",
         "@tanstack/react-query": "^5.83.0",
         "@tanstack/react-router": "^1.128.0",
+        "axios": "^1.10.0",
         "i18next": "^25.3.2",
         "i18next-http-backend": "^3.0.2",
         "moment": "^2.30.1",

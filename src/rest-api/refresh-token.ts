@@ -1,4 +1,4 @@
-import { request } from "./fetch.ts";
+import { request } from "./fetch-request.ts";
 
 interface IResponse {
     token: string;
@@ -6,6 +6,6 @@ interface IResponse {
     user: Record<string, unknown>;
 }
 
-export const postRefreshToken = async (args: { token: string }) => {
-    return request<IResponse>("/refresh-token", { method: "POST", body: JSON.stringify(args) });
+export const postRefreshToken = async (data: { token: string }) => {
+    return request<IResponse>("/refresh-token", { method: "POST", data });
 };
