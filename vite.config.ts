@@ -28,7 +28,7 @@ export default defineConfig({
             "@assets": resolve(import.meta.dirname, "./src/assets"),
             "@components": resolve(import.meta.dirname, "./src/components"),
             "@integrations": resolve(import.meta.dirname, "./src/integrations"),
-            "@mocks": resolve(import.meta.dirname, "./src/mocks"),
+            "@mocks": resolve(import.meta.dirname, "./mocks"),
             "@models": resolve(import.meta.dirname, "./src/models"),
             "@rest-api": resolve(import.meta.dirname, "./src/rest-api"),
             "@store": resolve(import.meta.dirname, "./src/store"),

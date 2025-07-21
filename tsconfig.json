@@ -28,7 +28,7 @@
             "@assets/*": ["./src/assets/*"],
             "@components/*": ["./src/components/*"],
             "@integrations/*": ["./src/integrations/*"],
-            "@mocks/*": ["./src/mocks/*"],
+            "@mocks/*": ["mocks/*"],
             "@models/*": ["./src/models/*"],
             "@rest-api/*": ["./src/rest-api/*"],
             "@store/*": ["./src/store/*"],
