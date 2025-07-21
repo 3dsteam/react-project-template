@@ -1714,6 +1714,74 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@syncfusion/ej2-base@npm:~30.1.37, @syncfusion/ej2-base@npm:~30.1.38":
+  version: 30.1.38
+  resolution: "@syncfusion/ej2-base@npm:30.1.38"
+  dependencies:
+    "@syncfusion/ej2-icons": "npm:~30.1.37"
+  bin:
+    syncfusion-license: bin/syncfusion-license.js
+  checksum: 10c0/594fdf45d2e85553df0f2337cd33ad34a81f6a343b1397c13a445543396fc02a1a504df2a549d510608163250a57521bc487883792d8701305d16fe5e8b149d3
+  languageName: node
+  linkType: hard
+
+"@syncfusion/ej2-buttons@npm:~30.1.37":
+  version: 30.1.37
+  resolution: "@syncfusion/ej2-buttons@npm:30.1.37"
+  dependencies:
+    "@syncfusion/ej2-base": "npm:~30.1.37"
+  checksum: 10c0/24b864940312ba6fc331dcc99bd468ce5d027dedf20e336a58d29d11daf59d01614edeabebaf76a4f632c177ffad608a618167fdefd6664662f414b59d7ec15e
+  languageName: node
+  linkType: hard
+
+"@syncfusion/ej2-icons@npm:~30.1.37":
+  version: 30.1.37
+  resolution: "@syncfusion/ej2-icons@npm:30.1.37"
+  checksum: 10c0/1b46f0857b0fe4c8b6c279374ac8bf53303c0eb28a43c108fbef6453bf6442743f5949df836bd434742433d8ffaf5cff8953f6715082ecf77bc38565aaee61f9
+  languageName: node
+  linkType: hard
+
+"@syncfusion/ej2-notifications@npm:30.1.37":
+  version: 30.1.37
+  resolution: "@syncfusion/ej2-notifications@npm:30.1.37"
+  dependencies:
+    "@syncfusion/ej2-base": "npm:~30.1.37"
+    "@syncfusion/ej2-buttons": "npm:~30.1.37"
+    "@syncfusion/ej2-popups": "npm:~30.1.37"
+  checksum: 10c0/b4bb759873637eabfd9d040b6a687a6f787299895c2e153520da31afb20730bbf7346857cb0bc042a98796848fb37bf639ea97c116e0d572b1c6c4d3f80478dd
+  languageName: node
+  linkType: hard
+
+"@syncfusion/ej2-popups@npm:~30.1.37":
+  version: 30.1.40
+  resolution: "@syncfusion/ej2-popups@npm:30.1.40"
+  dependencies:
+    "@syncfusion/ej2-base": "npm:~30.1.38"
+    "@syncfusion/ej2-buttons": "npm:~30.1.37"
+  checksum: 10c0/9b4bea12147617c6667e0e525195d5c334bebffaf7ee4d1f9d716232afabe617644bb2a369079b241ef550de627fbbcab8e435d129174f377d340c14f8922688
+  languageName: node
+  linkType: hard
+
+"@syncfusion/ej2-react-base@npm:~30.1.37":
+  version: 30.1.37
+  resolution: "@syncfusion/ej2-react-base@npm:30.1.37"
+  dependencies:
+    "@syncfusion/ej2-base": "npm:~30.1.37"
+  checksum: 10c0/7c9009911f4fc5fb434c166fb41d2fdbef113c7dd4a293fe83f258e046c5601dc2a6daed339f82e7e40a78432a2039739c855d17483a6764dd4f09daf95ad08c
+  languageName: node
+  linkType: hard
+
+"@syncfusion/ej2-react-notifications@npm:^30.1.37":
+  version: 30.1.37
+  resolution: "@syncfusion/ej2-react-notifications@npm:30.1.37"
+  dependencies:
+    "@syncfusion/ej2-base": "npm:~30.1.37"
+    "@syncfusion/ej2-notifications": "npm:30.1.37"
+    "@syncfusion/ej2-react-base": "npm:~30.1.37"
+  checksum: 10c0/6f8379da3304c92fb4c258675ded1896d716685256b5fb1d3e89e4b9469661c5a9d6e7a773fe247eb34ade20b66d106dd5a7e5e55bbcbc36ee2c0f0ac5d68fb8
+  languageName: node
+  linkType: hard
+
 "@tailwindcss/node@npm:4.1.11":
   version: 4.1.11
   resolution: "@tailwindcss/node@npm:4.1.11"
@@ -7433,6 +7501,7 @@ __metadata:
     "@eslint/js": "npm:^9.31.0"
     "@fortawesome/fontawesome-pro": "npm:^6.7.2"
     "@mswjs/http-middleware": "npm:^0.10.3"
+    "@syncfusion/ej2-react-notifications": "npm:^30.1.37"
     "@tailwindcss/vite": "npm:^4.1.11"
     "@tanstack/react-query": "npm:^5.83.0"
     "@tanstack/react-router": "npm:^1.128.0"
