@@ -1,15 +1,11 @@
 import * as TanstackQuery from "@integrations/tanstack-query/root-provider";
 import { createRouter, RouterProvider } from "@tanstack/react-router";
-import i18next from "i18next";
-import I18NextHttpBackend from "i18next-http-backend";
 import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
-import { initReactI18next } from "react-i18next";
+import "./styles.css";
 
 // Import the generated route tree
 import { routeTree } from "./routeTree.gen";
-
-import "./styles.css";
 
 // Create a new router instance
 const router = createRouter({
@@ -30,7 +26,7 @@ declare module "@tanstack/react-router" {
 
 // Enable API mocking by msw
 const enableMocking = async () => {
-    if (import.meta.env.PROD) return;
+    if (import.meta.env.PROD || import.meta.env.VITE_DISABLE_MOCK === "true") return;
     // Enable API mocking
     const { worker } = await import("./mocks/browser");
     // `worker.start()` returns a Promise that resolves
@@ -39,26 +35,8 @@ const enableMocking = async () => {
 };
 
 void (async () => {
-    // Initialize i18n
-    await i18next
-        .use(I18NextHttpBackend)
-        .use(initReactI18next)
-        .init({
-            lng: navigator.language,
-            fallbackLng: "en",
-            debug: import.meta.env.DEV,
-            interpolation: { escapeValue: false },
-        });
-
-    // Watch the language change
-    i18next.on("languageChanged", (lng) => {
-        // Update document language
-        console.log("Language changed to", lng);
-    });
-
     // Enable mocking
     await enableMocking();
-
     // Render App
     ReactDOM.createRoot(document.getElementById("root")!).render(
         <StrictMode>
