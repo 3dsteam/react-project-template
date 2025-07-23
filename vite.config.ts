@@ -23,7 +23,6 @@ export default defineConfig({
         setupFiles: "./src/setupTests.ts",
     },
     resolve: {
-        mainFields: ["module", "main"],
         alias: {
             "@assets": resolve(import.meta.dirname, "./src/assets"),
             "@components": resolve(import.meta.dirname, "./src/components"),
