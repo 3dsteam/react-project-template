@@ -3,8 +3,21 @@ import { persist } from "zustand/middleware";
 import { name } from "../../package.json";
 
 interface IState {
+    /**
+     * Authentication token
+     * If null, user is not authenticated
+     * @default null
+     */
     token: string | null;
+    /**
+     * Refresh token
+     * @default null
+     */
     refreshToken: string | null;
+    /**
+     * User data
+     * @default null
+     */
     user?: unknown;
 }
 
@@ -15,6 +28,10 @@ interface IActions {
     isAuth: () => boolean;
     /**
      * Authenticate session
+     * @param data The authentication data
+     * @param data.token The JWT token
+     * @param data.refreshToken The refresh token (optional)
+     * @param data.user The user data (optional)
      */
     authenticate: (data: { token: string; refreshToken?: string | null; user?: unknown }) => void;
     /**
