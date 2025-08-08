@@ -17,11 +17,6 @@ export default defineConfig({
         react(),
         tailwindcss(),
     ],
-    test: {
-        globals: true,
-        environment: "happy-dom",
-        setupFiles: "./src/setupTests.ts",
-    },
     resolve: {
         alias: {
             "@assets": resolve(import.meta.dirname, "./src/assets"),
@@ -33,5 +28,10 @@ export default defineConfig({
             "@store": resolve(import.meta.dirname, "./src/store"),
             "@tests": resolve(import.meta.dirname, "./src/tests"),
         },
+    },
+    test: {
+        globals: true,
+        environment: "jsdom",
+        setupFiles: "./src/setupTests.ts",
     },
 });
