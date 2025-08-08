@@ -1,0 +1,11 @@
+name: Push Linting
+
+on:
+    push:
+        branches: ["feature/**", "bugfix/**", "hotfix/**", "release/**"]
+
+jobs:
+    push-lint:
+        uses: ./.github/workflows/lint.yml
+        secrets:
+            FONT_AWESOME_TOKEN: ${{ secrets.FONT_AWESOME_TOKEN }}

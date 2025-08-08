@@ -1,0 +1,46 @@
+name: Build release
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Use Node.js 22.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+          cache: 'npm'
+          
+      - name: Enable Corepack
+        run: corepack enable
+          
+      - name: Install packages
+        run: yarn install --immutable
+
+      - name: Build project
+        run: yarn build
+
+      - name: Create zip name
+        run: echo "RELEASE_NAME=${{ github.event.repository.name }}-${{ github.event.release.tag_name }}-deploy.zip" >> $GITHUB_ENV
+
+      - name: Zip files
+        run: zip -r $RELEASE_NAME dist/*
+        env:
+          RELEASE_NAME: ${{ env.RELEASE_NAME }}
+
+      - name: Upload asset to release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.event.release.tag_name }}
+          files: ${{ env.RELEASE_NAME }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

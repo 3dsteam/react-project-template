@@ -1,0 +1,71 @@
+name: Lint
+
+on:
+    workflow_call:
+        secrets:
+            FONT_AWESOME_TOKEN:
+                required: true
+
+jobs:
+    lint:
+        runs-on: ubuntu-latest
+
+        strategy:
+            matrix:
+                node-version: [22.x]
+
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v4
+              with:
+                  node-version: ${{ matrix.node-version }}
+                  cache: "npm"
+
+            - name: Enable Corepack
+              run: corepack enable
+
+            - name: Set up Yarn
+              run: corepack prepare yarn@stable --activate
+
+            - name: Set yarn nodeLinker
+              run: yarn config set nodeLinker node-modules
+
+            - name: Set 3dsteam registry
+              run: |
+                  yarn config set npmScopes.3dsteam.npmRegistryServer "https://npm.pkg.github.com"
+                  yarn config set npmScopes.3dsteam.npmAuthToken $AUTH_TOKEN
+                  yarn config set npmScopes.3dsteam.npmAlwaysAuth true
+              env:
+                  AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: Set FontAwesome registry
+              run: |
+                  yarn config set npmScopes.fortawesome.npmRegistryServer "https://npm.fontawesome.com"
+                  yarn config set npmScopes.fortawesome.npmAuthToken $AUTH_TOKEN
+                  yarn config set npmScopes.fortawesome.npmAlwaysAuth true
+              env:
+                  AUTH_TOKEN: ${{ secrets.FONT_AWESOME_TOKEN }}
+            
+            - name: Restore cache
+              uses: actions/cache@v4
+              with:
+                  path: |
+                      .yarn/cache
+                      node_modules
+                  key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+                  restore-keys: |
+                      ${{ runner.os }}-yarn-
+
+            - name: Install packages
+              run: yarn install --immutable
+
+            - name: Lint
+              run: yarn eslint
+
+            - name: Type-check
+              run: yarn tsc --noEmit
+
+            - name: Prettier
+              run: yarn prettier --check --ignore-unknown
