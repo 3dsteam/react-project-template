@@ -6,6 +6,9 @@ import { defineConfig } from "vite";
 
 import { tanstackRouter } from "@tanstack/router-plugin/vite";
 import { resolve } from "node:path";
+import fs from "node:fs";
+
+import pkg from "./package.json";
 
 export default defineConfig({
     plugins: [
@@ -16,6 +19,17 @@ export default defineConfig({
         }),
         react(),
         tailwindcss(),
+        // Building version.json
+        {
+            name: "Build version.json",
+            buildStart() {
+                // Update version.json with the current package version and timestamp
+                fs.writeFileSync(
+                    "./public/version.json",
+                    JSON.stringify({ version: pkg.version, ts: Date.now() }, null, 2)
+                );
+            }
+        }
     ],
     resolve: {
         alias: {
