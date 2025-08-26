@@ -40,7 +40,9 @@ void (async () => {
     // Render App
     ReactDOM.createRoot(document.getElementById("root")!).render(
         <StrictMode>
-            <RouterProvider router={router} />
+            <TanstackQuery.Provider>
+                <RouterProvider router={router} />
+            </TanstackQuery.Provider>
         </StrictMode>,
     );
 })();
