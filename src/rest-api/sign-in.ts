@@ -1,4 +1,4 @@
-import { request } from "./fetch-request.ts";
+import { request } from "./__request.ts";
 
 interface IResponse {
     token: string;
