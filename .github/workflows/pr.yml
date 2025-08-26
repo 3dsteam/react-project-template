@@ -33,24 +33,14 @@ jobs:
             - name: Set up Yarn
               run: corepack prepare yarn@stable --activate
 
-            - name: Set yarn nodeLinker
-              run: yarn config set nodeLinker node-modules
-
-            - name: Set 3dsteam registry
+            - name: Set npm registries
               run: |
-                  yarn config set npmScopes.3dsteam.npmRegistryServer "https://npm.pkg.github.com"
-                  yarn config set npmScopes.3dsteam.npmAuthToken $AUTH_TOKEN
-                  yarn config set npmScopes.3dsteam.npmAlwaysAuth true
+                  yarn config set 'npmScopes["3dsteam"].npmAuthToken' $AUTH_TOKEN
+                  yarn config set 'npmScopes["fortawesome"].npmAuthToken' $FONT_AWESOME_TOKEN
+                  yarn config set 'npmScopes["awesome.me"].npmAuthToken' $FONT_AWESOME_TOKEN
               env:
-                  AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-            - name: Set FontAwesome registry
-              run: |
-                  yarn config set npmScopes.fortawesome.npmRegistryServer "https://npm.fontawesome.com"
-                  yarn config set npmScopes.fortawesome.npmAuthToken $AUTH_TOKEN
-                  yarn config set npmScopes.fortawesome.npmAlwaysAuth true
-              env:
-                  AUTH_TOKEN: ${{ secrets.FONT_AWESOME_TOKEN }}
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  FONT_AWESOME_TOKEN: ${{ secrets.FONT_AWESOME_TOKEN }}
 
             - name: Restore cache
               uses: actions/cache@v4

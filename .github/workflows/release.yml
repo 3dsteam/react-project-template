@@ -1,46 +1,68 @@
 name: Build release
 
 on:
-  release:
-    types: [published]
+    release:
+        types: [published]
 
 permissions:
-  contents: write
+    contents: write
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    
-    steps:
-      - uses: actions/checkout@v4
-      
-      - name: Use Node.js 22.x
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22.x
-          cache: 'npm'
-          
-      - name: Enable Corepack
-        run: corepack enable
-          
-      - name: Install packages
-        run: yarn install --immutable
+    build:
+        runs-on: ubuntu-latest
 
-      - name: Build project
-        run: yarn build
+        steps:
+            - uses: actions/checkout@v4
 
-      - name: Create zip name
-        run: echo "RELEASE_NAME=${{ github.event.repository.name }}-${{ github.event.release.tag_name }}-deploy.zip" >> $GITHUB_ENV
+            - name: Use Node.js 22.x
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 22.x
+                  cache: "npm"
 
-      - name: Zip files
-        run: zip -r $RELEASE_NAME dist/*
-        env:
-          RELEASE_NAME: ${{ env.RELEASE_NAME }}
+            - name: Enable Corepack
+              run: corepack enable
 
-      - name: Upload asset to release
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: ${{ github.event.release.tag_name }}
-          files: ${{ env.RELEASE_NAME }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            - name: Set up Yarn
+              run: corepack prepare yarn@stable --activate
+
+            - name: Set npm registries
+              run: |
+                  yarn config set 'npmScopes["3dsteam"].npmAuthToken' $AUTH_TOKEN
+                  yarn config set 'npmScopes["fortawesome"].npmAuthToken' $FONT_AWESOME_TOKEN
+                  yarn config set 'npmScopes["awesome.me"].npmAuthToken' $FONT_AWESOME_TOKEN
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  FONT_AWESOME_TOKEN: ${{ secrets.FONT_AWESOME_TOKEN }}
+
+            - name: Restore cache
+              uses: actions/cache@v4
+              with:
+                  path: |
+                      .yarn/cache
+                      node_modules
+                  key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+                  restore-keys: |
+                      ${{ runner.os }}-yarn-
+
+            - name: Install packages
+              run: yarn install --immutable
+
+            - name: Build project
+              run: yarn build
+
+            - name: Create zip name
+              run: echo "RELEASE_NAME=${{ github.event.repository.name }}-${{ github.event.release.tag_name }}-deploy.zip" >> $GITHUB_ENV
+
+            - name: Zip files
+              run: zip -r $RELEASE_NAME dist/*
+              env:
+                  RELEASE_NAME: ${{ env.RELEASE_NAME }}
+
+            - name: Upload asset to release
+              uses: softprops/action-gh-release@v2
+              with:
+                  tag_name: ${{ github.event.release.tag_name }}
+                  files: ${{ env.RELEASE_NAME }}
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
